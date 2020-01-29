@@ -1,0 +1,46 @@
+@import "./variables.scss";
+@import "./normalize.scss";
+
+@import url("https://fonts.googleapis.com/css?family=Quicksand:300,400,500,600,700&display=swap&subset=latin-ext");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  color: $color-text;
+  background: $color-white;
+  font-family: $font-base;
+  overflow-y: scroll;
+}
+
+.app {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+a {
+  transition: 0.3s;
+}
+
+a,
+a:hover,
+a:visited {
+  text-decoration: none;
+}
+
+@mixin desktop {
+  @media (min-width: 769px) {
+    @content;
+  }
+}
