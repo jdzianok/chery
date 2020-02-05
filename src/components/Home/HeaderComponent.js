@@ -9,28 +9,36 @@ class HeaderComponent extends Component {
   render() {
     return (
       <div className="header">
-        <div>
-          <h1>
+        <div className="header__container">
+          <h1 className="header__slogan">
             Zacznij pomagać!
             <br />
             Oddaj niechciane rzeczy
             <br />w zaufane ręce
           </h1>
         </div>
-        <img className="header__background" src={header_left} alt="" />
-        <img className="header__background" src={header_right} alt="" />
-        <button>
-          <Link className="link" to="/logowanie">
-            <p>Oddaj rzeczy</p>
-            <img src={arrow_right} alt="" />
-          </Link>
-        </button>
-        <button>
-          <Link className="link" to="/logowanie">
-            <p>Zorganizuj zbiórkę</p>
-            <img src={arrow_right} alt="" />
-          </Link>
-        </button>
+        <div className="header__backgroundContainer">
+          <img className="header__background--left" src={header_left} alt="" />
+          <img
+            className="header__background--right"
+            src={header_right}
+            alt=""
+          />
+        </div>
+        <div className="header__buttonContainer">
+          <button className="header__btn">
+            <Link className="link" to="/logowanie">
+              <p>Oddaj rzeczy</p>
+              <img src={arrow_right} alt="" />
+            </Link>
+          </button>
+          <button className="header__btn">
+            <Link className="link" to="/logowanie">
+              <p>Zorganizuj zbiórkę</p>
+              <img src={arrow_right} alt="" />
+            </Link>
+          </button>
+        </div>
       </div>
     );
   }
