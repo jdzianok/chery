@@ -39,8 +39,13 @@ a:visited {
   text-decoration: none;
 }
 
-@mixin desktop {
+@mixin tablet {
   @media (min-width: 769px) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (min-width: 1025px) {
     @content;
   }
 }

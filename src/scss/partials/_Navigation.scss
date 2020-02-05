@@ -3,11 +3,21 @@
   width: 100%;
   display: flex;
   padding: 20px;
+  @include tablet {
+    padding: 15px 10px;
+    align-items: center;
+  }
+  @include desktop {
+    padding: 15px 7%;
+  }
 
   &__image {
     display: block;
     width: 70%;
     cursor: pointer;
+    @include desktop {
+      width: 100%;
+    }
   }
 
   .navigation {
@@ -25,10 +35,25 @@
     background-color: $color-blue;
     transition: all 0.25s ease-in-out;
 
+    @include tablet {
+      position: relative;
+      flex-direction: row;
+      top: 0;
+      background-color: $color-white;
+      height: auto;
+    }
+
     &__list {
       list-style: none;
       text-align: center;
       margin-bottom: 40px;
+
+      @include tablet {
+        display: flex;
+        margin-bottom: 0;
+        flex-grow: 1;
+        justify-content: center;
+      }
     }
 
     &__item {
@@ -36,19 +61,57 @@
       font-weight: 600;
       color: $color-white;
       padding: 10px 0;
+
+      @include tablet {
+        color: $color-text;
+        font-size: 1.4rem;
+        font-weight: 500;
+        padding: 0 8px;
+      }
+      @include desktop {
+        font-size: 1.6rem;
+        padding: 0 10px;
+      }
     }
 
-    &__btn {
+    &__loginBtn,
+    &__signUpBtn {
       border: 2px solid $color-white;
       border-radius: 25px;
       background-color: $color-blue;
-      padding: 10px 15px;
+      // padding: 10px 15px;
       margin: 10px;
       font-size: 2rem;
+
+      @include tablet {
+        font-size: 1.4rem;
+        margin: 0;
+        font-weight: 500;
+        // padding: 10px 18px;
+      }
+      @include desktop {
+        font-size: 1.6rem;
+      }
     }
 
-    &__link {
+    &__link-in,
+    &__link-up {
+      display: block;
       color: $color-white;
+      padding: 10px 15px;
+    }
+
+    @include tablet {
+      &__link-in {
+        color: $color-blue;
+      }
+      &__link-up {
+        padding: 10px 20px;
+      }
+      &__loginBtn {
+        border: none;
+        background-color: $color-white;
+      }
     }
   }
 
@@ -70,6 +133,10 @@
     padding: 6px;
     margin-bottom: 4px;
     z-index: 2;
+
+    @include tablet {
+      display: none;
+    }
   }
 
   .hamburger__line {

@@ -95,7 +95,7 @@ class NavigationComponent extends Component {
               <p>{isLogged}</p>
             ) : (
               <button className="navigation__loginBtn navigation__btn">
-                <Link className="navigation__link" to="/signIn">
+                <Link className="navigation__link-in" to="/signIn">
                   Zaloguj
                 </Link>
               </button>
@@ -104,7 +104,7 @@ class NavigationComponent extends Component {
               {isLogged ? (
                 <p>Wyloguj</p>
               ) : (
-                <Link className="navigation__link" to="/signUp">
+                <Link className="navigation__link-up" to="/signUp">
                   Załóż konto
                 </Link>
               )}
