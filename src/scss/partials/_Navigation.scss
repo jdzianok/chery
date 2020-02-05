@@ -11,10 +11,14 @@
     padding: 15px 7%;
   }
 
+  &__logo {
+    z-index: 2;
+  }
   &__image {
     display: block;
     width: 70%;
     cursor: pointer;
+
     @include desktop {
       width: 100%;
     }
@@ -61,6 +65,7 @@
       font-weight: 600;
       color: $color-white;
       padding: 10px 0;
+      cursor: pointer;
 
       @include tablet {
         color: $color-text;

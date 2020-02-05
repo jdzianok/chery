@@ -1,24 +1,102 @@
 .header {
+  position: relative;
   width: 100%;
   color: $color-text;
   font-size: 1.6rem;
   background-color: $color-bg-header;
   display: flex;
   flex-wrap: wrap;
+  padding-bottom: 2rem;
 
-  div {
+  &__container {
     flex-basis: 100%;
     text-align: center;
-    h1 {
-      font-size: 4vw;
-      // line-height: 2.4rem;
-      margin: 22px 0;
+
+    @include tablet {
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50rem;
+    }
+  }
+  &__slogan {
+    font-size: 4vw;
+    margin: 3rem 0 1.8rem;
+    color: $color-text;
+
+    @include tablet {
+      font-size: 2.8rem;
+      margin: 0;
+    }
+
+    @include desktop {
+      font-size: 3.6rem;
     }
   }
 
-  &__background {
-    margin-top: -50px;
+  &__backgroundContainer {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__background--left,
+  &__background--right {
+    margin-top: -5rem;
     width: 50%;
     display: block;
+
+    @include tablet {
+      width: 35%;
+    }
+  }
+
+  &__buttonContainer {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+
+    @include tablet {
+      position: absolute;
+      top: 70%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      flex-direction: row;
+      justify-content: space-between;
+      width: 53rem;
+    }
+  }
+
+  &__btn {
+    display: block;
+    border: 1px solid $color-border-btn;
+    background-color: $color-white;
+    flex-basis: 100%;
+    margin: 0.3rem 6%;
+
+    @include tablet {
+      flex-basis: auto;
+      margin: 0;
+    }
+
+    .link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.6rem 2rem;
+      font-size: 1.6rem;
+      color: $color-text;
+      font-weight: 600;
+
+      @include tablet {
+        font-size: 2.2rem;
+      }
+
+      p {
+        display: inline-block;
+        padding-right: 1rem;
+      }
+    }
   }
 }
