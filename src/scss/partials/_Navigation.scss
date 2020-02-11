@@ -1,14 +1,20 @@
 .menu {
-  position: relative;
+  position: fixed;
+  top: 0;
+  // left: 0;
+  // right: 0;
+  z-index: 10;
   width: 100%;
+  max-width: 1440px;
   display: flex;
-  padding: 20px;
+  padding: 2rem;
+  background-color: $color-white;
   @include tablet {
-    padding: 15px 10px;
+    padding: 1.5rem 1.8%;
     align-items: center;
   }
   @include desktop {
-    padding: 15px 7%;
+    padding: 1.5rem 4%;
   }
 
   &__logo {
@@ -31,11 +37,11 @@
     justify-content: center;
     align-items: center;
     padding: 0;
-    top: -1200px;
+    top: -1300px;
     left: 0;
     width: 100%;
     height: 100vh;
-    z-index: 1;
+    z-index: 3;
     background-color: $color-blue;
     transition: all 0.25s ease-in-out;
 
@@ -50,7 +56,7 @@
     &__list {
       list-style: none;
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 4rem;
 
       @include tablet {
         display: flex;
@@ -64,28 +70,28 @@
       font-size: 3rem;
       font-weight: 600;
       color: $color-white;
-      padding: 10px 0;
+      padding: 1rem 0;
       cursor: pointer;
 
       @include tablet {
         color: $color-text;
         font-size: 1.4rem;
         font-weight: 500;
-        padding: 0 8px;
+        padding: 0 0.8rem;
       }
       @include desktop {
         font-size: 1.6rem;
-        padding: 0 10px;
+        padding: 0 1rem;
       }
     }
 
     &__loginBtn,
     &__signUpBtn {
       border: 2px solid $color-white;
-      border-radius: 25px;
+      border-radius: 2.5rem;
       background-color: $color-blue;
       // padding: 10px 15px;
-      margin: 10px;
+      margin: 1rem;
       font-size: 2rem;
 
       @include tablet {
@@ -103,7 +109,7 @@
     &__link-up {
       display: block;
       color: $color-white;
-      padding: 10px 15px;
+      padding: 1rem 1.5rem;
     }
 
     @include tablet {
@@ -111,7 +117,7 @@
         color: $color-blue;
       }
       &__link-up {
-        padding: 10px 20px;
+        padding: 1rem 2rem;
       }
       &__loginBtn {
         border: none;
@@ -128,16 +134,16 @@
     position: absolute;
     right: 5%;
     top: 20%;
-    height: 45px;
-    width: 45px;
+    height: 4.5rem;
+    width: 4.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    padding: 6px;
-    margin-bottom: 4px;
-    z-index: 2;
+    padding: 0.6rem;
+    margin-bottom: 0.4rem;
+    z-index: 4;
 
     @include tablet {
       display: none;
