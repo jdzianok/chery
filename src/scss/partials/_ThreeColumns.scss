@@ -1,15 +1,22 @@
 .summary {
   display: flex;
-  flex-direction: column;
   flex-basis: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
   padding: 2rem 2rem;
   background-color: $color-dark-blue;
   color: $color-white;
+
+  @include tablet {
+    justify-content: space-around;
+    padding: 3rem 0;
+  }
 
   &__box {
     margin: 2rem 0;
     text-align: center;
     padding: 0 2rem;
+    max-width: 365px;
   }
 
   &__numberContainer {
@@ -30,6 +37,10 @@
     font-size: 5.9rem;
     font-weight: 300;
     padding-right: 1rem;
+
+    @include desktop {
+      font-size: 7rem;
+    }
   }
 
   &__title {
