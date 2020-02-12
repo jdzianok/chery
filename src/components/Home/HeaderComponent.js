@@ -8,7 +8,7 @@ class HeaderComponent extends Component {
   state = {};
   render() {
     return (
-      <div className="header">
+      <header className="header">
         <div className="header__container">
           <h1 className="header__slogan">
             Zacznij pomagać!
@@ -39,7 +39,7 @@ class HeaderComponent extends Component {
             </Link>
           </button>
         </div>
-      </div>
+      </header>
     );
   }
 }
