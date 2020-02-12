@@ -5,7 +5,7 @@ import smile from "../../assets/smile.svg";
 
 const ThreeColumns = () => {
   return (
-    <div className="summary">
+    <section className="summary">
       <div className="summary__box">
         <div className="summary__numberContainer">
           <p className="summary__number">1000</p>
@@ -39,7 +39,7 @@ const ThreeColumns = () => {
           a elit viverra elementuma. Aliquam erat.
         </p>
       </div>
-    </div>
+    </section>
   );
 };
 

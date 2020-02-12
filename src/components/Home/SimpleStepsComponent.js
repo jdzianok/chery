@@ -8,7 +8,7 @@ import arrow_right from "../../assets/arrow_right_big.svg";
 
 const SimpleStepsComponent = () => {
   return (
-    <div className="steps">
+    <main className="steps">
       <h2 className="steps__header">Wystarczą 4 proste kroki</h2>
       <div className="steps__container">
         <div className="steps__box">
@@ -38,7 +38,7 @@ const SimpleStepsComponent = () => {
           </Link>
         </button>
       </div>
-    </div>
+    </main>
   );
 };
 
