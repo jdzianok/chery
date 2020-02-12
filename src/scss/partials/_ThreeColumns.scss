@@ -1,0 +1,57 @@
+.summary {
+  display: flex;
+  flex-basis: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 2rem 2rem;
+  background-color: $color-dark-blue;
+  color: $color-white;
+
+  @include tablet {
+    justify-content: space-around;
+    padding: 3rem 0;
+  }
+
+  &__box {
+    margin: 2rem 0;
+    text-align: center;
+    padding: 0 2rem;
+    max-width: 365px;
+  }
+
+  &__numberContainer {
+    display: flex;
+    justify-content: center;
+
+    img {
+      display: block;
+      width: 3rem;
+    }
+  }
+
+  .diff {
+    width: 0.9rem;
+  }
+
+  &__number {
+    font-size: 5.9rem;
+    font-weight: 300;
+    padding-right: 1rem;
+
+    @include desktop {
+      font-size: 7rem;
+    }
+  }
+
+  &__title {
+    font-size: 2rem;
+
+    padding: 1rem 0 1.6rem;
+  }
+
+  &__subtitle {
+    font-size: 1.4rem;
+    font-weight: 300;
+    line-height: 2.2rem;
+  }
+}

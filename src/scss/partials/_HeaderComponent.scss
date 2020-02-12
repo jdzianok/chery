@@ -7,6 +7,7 @@
   display: flex;
   flex-wrap: wrap;
   padding-bottom: 2rem;
+  margin-top: 7.4rem;
 
   &__container {
     flex-basis: 100%;
@@ -21,8 +22,8 @@
     }
   }
   &__slogan {
-    font-size: 4vw;
-    margin: 3rem 0 1.8rem;
+    font-size: 4.7vw;
+    margin: 7vh 0 1.8rem;
     color: $color-text;
 
     @include tablet {
@@ -43,7 +44,7 @@
 
   &__background--left,
   &__background--right {
-    margin-top: -5rem;
+    margin-top: -6rem;
     width: 50%;
     display: block;
 
