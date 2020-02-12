@@ -1,0 +1,137 @@
+.steps {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 6.5rem 0 0;
+  text-align: center;
+
+  &::before,
+  &::after {
+    position: absolute;
+    top: 0;
+    content: "";
+    display: block;
+    height: 6.5rem;
+    width: 7%;
+    background-color: $color-dark-blue;
+  }
+  &::before {
+    left: 0;
+  }
+  &::after {
+    right: 0;
+  }
+
+  &__header {
+    width: 50%;
+    padding: 0.5rem 0 3rem;
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 3.6rem;
+
+    @include tablet {
+      font-size: 3rem;
+    }
+    @include desktop {
+      font-size: 3.6rem;
+    }
+  }
+
+  &__container {
+    flex-basis: 100%;
+
+    @include tablet {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 5rem;
+      padding: 0 10%;
+    }
+
+    @include desktop {
+      padding: 0;
+      max-width: 1200px;
+    }
+  }
+
+  &__box {
+    position: relative;
+    margin-bottom: 5rem;
+
+    @include tablet {
+      flex-basis: 50%;
+    }
+
+    @include desktop {
+      flex-basis: 25%;
+    }
+  }
+
+  @include desktop {
+    &__box:nth-child(1),
+    &__box:nth-child(3) {
+      ::after {
+        content: "";
+        background-image: url(../../assets/curve_bottom.svg);
+        display: block;
+        position: absolute;
+        top: 40px;
+        right: -125px;
+        width: 200px;
+        height: 100px;
+        background-repeat: no-repeat;
+        background-size: 76%;
+      }
+    }
+    &__box:nth-child(2) {
+      ::after {
+        content: "";
+        background-image: url(../../assets/curve_top.svg);
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: -125px;
+        width: 200px;
+        height: 100px;
+        background-repeat: no-repeat;
+        background-size: 76%;
+      }
+    }
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 600;
+    padding: 2rem 0 1.2rem;
+  }
+
+  &__subtitle {
+    font-size: 1.6rem;
+  }
+
+  &__btn {
+    display: block;
+    border: none;
+    background-color: transparent;
+    margin: 0 auto;
+
+    @include desktop {
+      margin: 5rem auto;
+    }
+
+    .stepsLink {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.6rem 2rem;
+      font-size: 2rem;
+      color: $color-blue;
+      font-weight: 600;
+
+      p {
+        display: inline-block;
+        padding-right: 1rem;
+      }
+    }
+  }
+}
