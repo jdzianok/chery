@@ -1,0 +1,110 @@
+[
+  {
+    "name": "Fundacje",
+    "desc": "W naszej bazie znajdziesz listę zweryfikowanych Fundacji, z którymi współpracujemy. Możesz sprawdzić czym się zajmują, komu pomagają i czego potrzebują.",
+    "items": [
+      {
+        "title": "Fundacja \"Dbam o Zdrowie\"",
+        "description": "Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
+        "tags": "ubrania, jedzenie, sprzęt AGD, meble, zabawki"
+      },
+      {
+        "title": "Fundacja \"Dla dzieci\"",
+        "description": "Cel i misja: Pomoc dzieciom z ubogich rodzin.",
+        "tags": "ubrania, meble, zabawki"
+      },
+      {
+        "title": "Fundacja \"Bez domu\"",
+        "description": "Cel i misja: Pomoc dla osób nie posiadających miejsca zamieszkania.",
+        "tags": "ubrania, jedzenie, ciepłe koce"
+      },
+      {
+        "title": "Fundacja \"Lorem ipsum 1\"",
+        "description": "Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
+        "tags": "ubrania, jedzenie, sprzęt AGD, meble, zabawki"
+      },
+      {
+        "title": "Fundacja \"Lorem ipsum 2\"",
+        "description": "Cel i misja: Pomoc dzieciom z ubogich rodzin.",
+        "tags": "ubrania, meble, zabawki"
+      },
+      {
+        "title": "Fundacja \"Lorem ipsum 3\"",
+        "description": "Cel i misja: Pomoc dla osób nie posiadających miejsca zamieszkania.",
+        "tags": "ubrania, jedzenie, ciepłe koce"
+      },
+      {
+        "title": "Fundacja \"Lorem ipsum 4\"",
+        "description": "Cel i misja: Pomoc dla osób nie posiadających miejsca zamieszkania.",
+        "tags": "ubrania, jedzenie, ciepłe koce"
+      },
+      {
+        "title": "Fundacja \"Lorem ipsum 5\"",
+        "description": "Cel i misja: Pomoc dla osób nie posiadających miejsca zamieszkania.",
+        "tags": "ubrania, jedzenie, ciepłe koce"
+      },
+      {
+        "title": "Fundacja \"Lorem ipsum 6\"",
+        "description": "Cel i misja: Pomoc dla osób nie posiadających miejsca zamieszkania.",
+        "tags": "ubrania, jedzenie, ciepłe koce"
+      }
+    ]
+  },
+  {
+    "name": "Organizacje",
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
+    "items": [
+      {
+        "title": "Organizacja \"Lorem ipsum 1\"",
+        "description": "Quis varius quam quisque id diam vel quam elementum pulvinar.",
+        "tags": "Egestas, sed, tempus"
+      },
+      {
+        "title": "Organizacja \"Lorem ipsum 2\"",
+        "description": "Hendrerit gravida rutrum quisque non tellus orci ac auctoraugue.",
+        "tags": "Ut, aliquam, purus, sit, amet"
+      },
+      {
+        "title": "Organizacja \"Lorem ipsum 3\"",
+        "description": "Scelerisque in dictum non consectetur a erat nam",
+        "tags": "Mi, quis hendrerit, dolor"
+      },
+      {
+        "title": "Organizacja \"Lorem ipsum 4\"",
+        "description": "Scelerisque in dictum non consectetur a erat nam",
+        "tags": "Mi, quis hendrerit, dolor"
+      },
+      {
+        "title": "Organizacja \"Lorem ipsum 5\"",
+        "description": "Quis varius quam quisque id diam vel quam elementum pulvinar.",
+        "tags": "Ut, aliquam, purus, sit, amet"
+      },
+      {
+        "title": "Organizacja \"Lorem ipsum 6\"",
+        "description": "Hendrerit gravida rutrum quisque non tellus orci ac auctoraugue.",
+        "tags": "Egestas, sed, tempus"
+      }
+    ]
+  },
+  {
+    "name": "Zbiórki",
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
+    "items": [
+      {
+        "title": "Zbiórka \"Lorem ipsum 1\"",
+        "description": "Quis varius quam quisque id diam vel quam elementum pulvinar.",
+        "tags": "Egestas, sed, tempus"
+      },
+      {
+        "title": "Zbiórka \"Lorem ipsum 2\"",
+        "description": "Hendrerit gravida rutrum quisque non tellus orci.",
+        "tags": "Ut, aliquam, purus, sit, amet"
+      },
+      {
+        "title": "Zbiórka \"Lorem ipsum 3\"",
+        "description": "Scelerisque in dictum non consectetur a erat nam",
+        "tags": "Mi, quis hendrerit, dolor"
+      }
+    ]
+  }
+]

@@ -14,7 +14,7 @@ const AboutUsComponent = () => {
         </p>
         <img src={signature} alt="signature" className="aboutUs__signature" />
       </div>
-      <img src={groupPhoto} alt="group photo" className="aboutUs__groupPhoto" />
+      <img src={groupPhoto} alt="group" className="aboutUs__groupPhoto" />
     </section>
   );
 };

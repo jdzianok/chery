@@ -57,7 +57,7 @@ class NavigationComponent extends Component {
               {this.props.history.location.pathname !== "/" ? (
                 <p>O co chodzi?</p>
               ) : (
-                <ScrollLink to="simpleSteps" {...options}>
+                <ScrollLink to="steps" {...options}>
                   O co chodzi?
                 </ScrollLink>
               )}

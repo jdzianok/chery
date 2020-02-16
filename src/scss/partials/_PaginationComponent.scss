@@ -1,4 +1,169 @@
-.pagination {
-  height: 100vh;
-  width: 100%;
+.whoWeHelp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 4rem;
+
+  .head {
+    width: 100%;
+    max-width: 670px;
+    margin: 6.6rem 0 1rem;
+    text-align: center;
+
+    &__title {
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 3rem;
+      color: $color-text;
+
+      @include tablet {
+        font-size: 3rem;
+      }
+
+      @include desktop {
+        font-size: 3.6rem;
+      }
+    }
+
+    &__description {
+      padding: 0 2rem;
+      font-size: 1.6rem;
+      line-height: 3.6rem;
+      color: $color-text;
+      margin-bottom: 6.5rem;
+
+      @include desktop {
+        font-size: 2rem;
+        line-height: 4.2rem;
+        margin-bottom: 9rem;
+      }
+    }
+
+    &__organizations {
+      position: relative;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      text-align: center;
+      max-width: 400px;
+      margin: 0 auto;
+
+      @include desktop {
+        max-width: 600px;
+      }
+    }
+
+    &__organization {
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: $color-dark-blue;
+      padding: 0 3rem 1.25rem;
+      flex-basis: 33.333%;
+      cursor: pointer;
+
+      @include desktop {
+        font-size: 2rem;
+      }
+    }
+
+    &__organization.active {
+      font-weight: 600;
+      color: $color-blue;
+      transition: all ease-in-out 0.15s;
+    }
+
+    &__activeLine {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 33.333%;
+      height: 2px;
+      background: $color-blue;
+      transition: all ease-in-out 0.3s;
+    }
+    @for $i from 1 through 3 {
+      .head__organization:nth-child(#{$i}).active ~ .head__activeLine {
+        left: 33.333% * $i - 33.333%;
+      }
+    }
+  }
+
+  .items {
+    min-width: 70%;
+
+    @include desktop {
+      width: 100%;
+      max-width: 1200px;
+      margin-top: 3rem;
+    }
+
+    .item {
+      max-width: 1200px;
+      display: flex;
+      flex-direction: column;
+      align-self: flex-start;
+      padding-bottom: 2rem;
+      margin: 4rem 5%;
+      color: $color-text;
+      border-bottom: 1px solid $color-border-btn;
+
+      @include desktop {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+        padding-bottom: 3rem;
+      }
+
+      &__header {
+        color: $color-dark-blue;
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+
+        @include desktop {
+          font-size: 2rem;
+        }
+      }
+
+      &__description {
+        font-size: 1.6rem;
+        line-height: 2.6rem;
+        margin-bottom: 1.5rem;
+      }
+
+      &__tags {
+        font-size: 1.5rem;
+        line-height: 2.6rem;
+        margin-bottom: 1.5rem;
+      }
+    }
+    .item--noBorder {
+      border: none;
+    }
+  }
+
+  .pagination__btn {
+    border: none;
+    background-color: transparent;
+    font-size: 2rem;
+    color: $color-dark-blue;
+    font-weight: 500;
+    margin: 0 2rem;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &--active {
+      color: $color-white;
+      background-color: $color-blue;
+    }
+  }
+
+  .pagination__btn:focus {
+    outline: none;
+  }
 }
