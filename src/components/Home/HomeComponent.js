@@ -6,6 +6,7 @@ import SimpleStepsComponent from "./SimpleStepsComponent";
 import AboutUsComponent from "./AboutUsComponent";
 import PaginationComponent from "./PaginationComponent";
 import ContactComponent from "./ContactComponent";
+import FooterComponent from "./FooterComponent";
 
 class HomeComponent extends Component {
   state = {};
@@ -19,6 +20,7 @@ class HomeComponent extends Component {
         <AboutUsComponent />
         <PaginationComponent />
         <ContactComponent />
+        <FooterComponent />
       </div>
     );
   }
