@@ -77,7 +77,55 @@ class ContactComponent extends Component {
     });
   };
   render() {
-    return <div>contact</div>;
+    return (
+      <section className="contact">
+        <div className="contact__backgroundImage"></div>
+        <form className="form">
+          <h3 className="form__header">Skontaktuj się z nami</h3>
+          <label>Imię</label>
+          <input
+            type="text"
+            placeholder="Wpisz swoje imię"
+            name="name"
+            value={this.state.name}
+            onChange={this.handleChange}
+            onBlur={() => this.handleNameValidation()}
+          />
+          {this.state.nameError && (
+            <p style={{ color: "red" }}>Podane imię jest nieprawidłowe</p>
+          )}
+          <label>E-mail</label>
+          <input
+            type="email"
+            placeholder="Podaj adres e-mail"
+            name="email"
+            value={this.state.email}
+            onChange={this.handleChange}
+            onBlur={() => this.handleEmailValidation()}
+          />
+          {this.state.emailError && (
+            <p style={{ color: "red" }}>Podany e-mail jest nieprawidłowy</p>
+          )}
+          <label>Wiadomość</label>
+          <textarea
+            placeholder="Wpisz treść wiadomości"
+            name="message"
+            // rows="1"
+            value={this.state.message}
+            onChange={this.handleChange}
+            onBlur={() => this.handleMessageValidation()}
+          ></textarea>
+          {this.state.messageError && (
+            <p style={{ color: "red" }}>
+              Wiadomość musi mieć conajmniej 120 znaków
+            </p>
+          )}
+          <button className="form__submitBtn" type="submit" value="Wyślij">
+            Wyślij
+          </button>
+        </form>
+      </section>
+    );
   }
 }
 
