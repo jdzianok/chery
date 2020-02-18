@@ -5,7 +5,12 @@
 
   &__backgroundImage {
     display: none;
-    flex-basis: 60%;
+
+    @include desktop {
+      display: block;
+      flex-basis: 50%;
+      border: 1px solid black;
+    }
   }
 
   .form {
@@ -16,6 +21,11 @@
     width: 100%;
     max-width: 500px;
 
+    @include desktop {
+      padding: 0 2%;
+      margin: 7rem 5% 7rem 0;
+    }
+
     &__header {
       display: block;
       flex-basis: 100%;
@@ -23,6 +33,11 @@
       font-size: 2.4rem;
       font-weight: 700;
       text-align: center;
+
+      @include desktop {
+        font-size: 3.6rem;
+        margin-bottom: 5rem;
+      }
     }
 
     p {
@@ -38,7 +53,7 @@
       width: 100%;
       padding-bottom: 1.2rem;
       font-size: 1.4rem;
-      margin-bottom: 1rem;
+      margin: 1.5rem 0;
       box-shadow: none;
       appearance: none;
       outline: none;
@@ -48,8 +63,39 @@
       resize: none;
     }
 
+    &__nameContainer,
+    &__emailContainer,
+    &__messageContainer {
+      width: 100%;
+      margin: 2rem 0;
+    }
+
+    &__container {
+      width: 100%;
+
+      @include desktop {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+
+    @include desktop {
+      &__nameContainer,
+      &__emailContainer {
+        width: 45%;
+      }
+      input {
+        width: 100%;
+      }
+
+      &__nameContainer {
+        float: left;
+      }
+    }
+
     textarea {
       padding-bottom: 0;
+      height: 5rem;
     }
 
     input {
@@ -64,13 +110,17 @@
     }
 
     &__submitBtn {
-      margin: 6rem auto;
+      margin: 6rem auto 0;
       font-size: 1.6rem;
       color: $color-white;
       background-color: $color-blue;
       padding: 1rem 5rem;
       font-weight: 500;
       border-radius: 2.5rem;
+    }
+
+    &__submitBtn:focus {
+      outline: none;
     }
   }
 }
