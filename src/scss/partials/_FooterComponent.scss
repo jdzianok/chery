@@ -1,0 +1,46 @@
+.footer {
+  padding: 4rem 0 7rem;
+  margin: 1.2rem 5% 0;
+  border-top: 1px solid rgba(204, 204, 204, 0.6);
+  text-align: center;
+
+  @include tablet {
+    margin: 5rem 0 0;
+    padding-bottom: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__copy {
+    @include tablet {
+      display: flex;
+      margin-left: 14%;
+    }
+  }
+
+  &__text {
+    font-size: 1.2rem;
+    color: $color-nav;
+    padding-bottom: 2rem;
+    font-weight: 600;
+    opacity: 53%;
+
+    @include tablet {
+      padding-bottom: 0;
+      margin-right: 8rem;
+    }
+  }
+
+  &__media {
+    margin-top: 3rem;
+
+    @include tablet {
+      margin: 0 5% 0 0;
+    }
+  }
+
+  &__logo {
+    margin: 0 1.5rem;
+  }
+}
