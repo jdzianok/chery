@@ -61,6 +61,10 @@
       flex-basis: 33.333%;
       cursor: pointer;
 
+      @include tablet {
+        font-size: 1.8rem;
+      }
+
       @include desktop {
         font-size: 2rem;
       }

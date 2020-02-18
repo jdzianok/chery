@@ -1,0 +1,76 @@
+.contact {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  &__backgroundImage {
+    display: none;
+    flex-basis: 60%;
+  }
+
+  .form {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 7rem 0;
+    padding: 0 8%;
+    width: 100%;
+    max-width: 500px;
+
+    &__header {
+      display: block;
+      flex-basis: 100%;
+      margin-bottom: 2rem;
+      font-size: 2.4rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    p {
+      display: block;
+      width: 100%;
+      font-size: 1.4rem;
+    }
+
+    input,
+    textarea {
+      text-align: left;
+      display: block;
+      width: 100%;
+      padding-bottom: 1.2rem;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      box-shadow: none;
+      appearance: none;
+      outline: none;
+      background-color: transparent;
+      border-style: none;
+      border-bottom: 1px solid $color-dark-blue;
+      resize: none;
+    }
+
+    textarea {
+      padding-bottom: 0;
+    }
+
+    input {
+      height: 25px;
+    }
+
+    label {
+      font-size: 2rem;
+      color: $color-dark-blue;
+      font-weight: 600;
+      margin: 3rem 0 2rem;
+    }
+
+    &__submitBtn {
+      margin: 6rem auto;
+      font-size: 1.6rem;
+      color: $color-white;
+      background-color: $color-blue;
+      padding: 1rem 5rem;
+      font-weight: 500;
+      border-radius: 2.5rem;
+    }
+  }
+}

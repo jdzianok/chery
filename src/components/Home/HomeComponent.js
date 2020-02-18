@@ -5,6 +5,7 @@ import ThreeColumns from "./ThreeColumns";
 import SimpleStepsComponent from "./SimpleStepsComponent";
 import AboutUsComponent from "./AboutUsComponent";
 import PaginationComponent from "./PaginationComponent";
+import ContactComponent from "./ContactComponent";
 
 class HomeComponent extends Component {
   state = {};
@@ -17,6 +18,7 @@ class HomeComponent extends Component {
         <SimpleStepsComponent />
         <AboutUsComponent />
         <PaginationComponent />
+        <ContactComponent />
       </div>
     );
   }
