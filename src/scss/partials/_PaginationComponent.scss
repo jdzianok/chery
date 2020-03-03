@@ -60,6 +60,7 @@
       padding: 0 3rem 1.25rem;
       flex-basis: 33.333%;
       cursor: pointer;
+      transition: all ease-in-out 0.15s;
 
       @include tablet {
         font-size: 1.8rem;
@@ -68,6 +69,11 @@
       @include desktop {
         font-size: 2rem;
       }
+    }
+
+    &__organization:hover {
+      font-weight: 600;
+      color: $color-blue;
     }
 
     &__organization.active {

@@ -75,37 +75,6 @@ class RegisterComponent extends Component {
         <section className="registerContainer">
           <form className="registerForm" onSubmit={e => this.submitRegister(e)}>
             <h2 className="registerForm__header">Zarejestruj się</h2>
-            {/* <div className="registerForm__formContent">
-              <label htmlFor="register-email-input">E-mail</label>
-              <input
-                id="register-email-input"
-                type="email"
-                autoFocus
-                autoComplete="email"
-                onChange={e => this.userTyping("email", e)}
-              />
-              <span></span>
-            </div>
-            <div className="registerForm__formContent">
-              <label htmlFor="register-password-input">Hasło</label>
-              <input
-                id="register-password-input"
-                type="password"
-                onChange={e => this.userTyping("password", e)}
-              />
-              <span></span>
-            </div>
-            <div className="registerForm__formContent">
-              <label htmlFor="register-password-confirmation-input">
-                Powtórz hasło
-              </label>
-              <input
-                id="register-password-confirmation-input"
-                type="password"
-                onChange={e => this.userTyping("passwordConfirmation", e)}
-              />
-              <span></span>
-            </div> */}
             <div className="registerForm__formContent">
               <input
                 id="register-email-input"

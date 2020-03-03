@@ -1,12 +1,12 @@
 .footer {
-  padding: 4rem 0 7rem;
+  padding: 4rem 0 5rem;
   margin: 1.2rem 5% 0;
   border-top: 1px solid rgba(204, 204, 204, 0.6);
   text-align: center;
 
   @include tablet {
     margin: 5rem 0 0;
-    padding-bottom: 4rem;
+    padding: 2rem 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -42,5 +42,6 @@
 
   &__logo {
     margin: 0 1.5rem;
+    cursor: pointer;
   }
 }

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Link as ScrollLink } from "react-scroll";
 import { Link, withRouter } from "react-router-dom";
-// import user from "../../assets/user.svg";
 import logo from "../../assets/logo.svg";
+const firebase = require("firebase");
 
 const options = {
   activeClass: "active",
@@ -14,19 +14,25 @@ const options = {
 
 class NavigationComponent extends Component {
   state = {
-    openMenu: false,
-    // openLogin: false,
-    isLogged: null
+    openMenu: false
   };
 
   handleOpenMenu = () => {
     this.setState({ openMenu: !this.state.openMenu });
   };
-  // handleOpenLogin = () => {
-  //   this.setState({ openLogin: !this.state.openLogin });
-  // };
+
+  logout = () => {
+    firebase.auth().signOut();
+    this.props.history.push("/");
+  };
+
+  capitalizeFirstLetter = string => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+
   render() {
-    const { openMenu, isLogged } = this.state;
+    const { openMenu } = this.state;
+    const { isLogged } = this.props;
     return (
       <div className="menu">
         <div className="menu__logo">
@@ -92,7 +98,9 @@ class NavigationComponent extends Component {
           </ul>
           <div className="navigation__login">
             {isLogged ? (
-              <p>{isLogged}</p>
+              <p className="user">
+                {this.capitalizeFirstLetter(isLogged.split("@")[0])}
+              </p>
             ) : (
               <button className="navigation__loginBtn navigation__btn">
                 <Link className="navigation__link-in" to="/signIn">
@@ -102,7 +110,9 @@ class NavigationComponent extends Component {
             )}
             <button className="navigation__signUpBtn navigation__btn">
               {isLogged ? (
-                <p>Wyloguj</p>
+                <p className="logOut" onClick={() => this.logout()}>
+                  Wyloguj
+                </p>
               ) : (
                 <Link className="navigation__link-up" to="/signUp">
                   Załóż konto

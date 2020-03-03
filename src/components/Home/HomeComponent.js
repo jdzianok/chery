@@ -9,11 +9,14 @@ import ContactComponent from "./ContactComponent";
 import FooterComponent from "./FooterComponent";
 
 class HomeComponent extends Component {
-  state = {};
+  state = {
+    isLogged: false
+  };
+
   render() {
     return (
       <div id="start">
-        <Navigation />
+        <Navigation isLogged={this.props.isLogged} />
         <HeaderComponent />
         <ThreeColumns />
         <SimpleStepsComponent />

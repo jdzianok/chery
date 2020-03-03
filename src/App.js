@@ -3,6 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { Route, Switch } from "react-router-dom";
 import Home from "./components/Home/HomeComponent";
 import Register from "./components/Register/RegisterComponent";
+import Login from "./components/Login/LoginComponent";
 const firebase = require("firebase");
 
 class App extends Component {
@@ -29,6 +30,7 @@ class App extends Component {
               component={() => <Home isLogged={this.state.user} />}
             />
             <Route path="/signUp" component={Register} />
+            <Route path="/signIn" component={Login} />
           </Switch>
         </div>
       </Router>
