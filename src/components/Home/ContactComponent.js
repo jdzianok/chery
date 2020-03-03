@@ -82,49 +82,66 @@ class ContactComponent extends Component {
         <div className="contact__backgroundImage"></div>
         <form className="form" onSubmit={this.handleSubmit}>
           <h3 className="form__header">Skontaktuj się z nami</h3>
-          {this.state.messageSend && <p>wysłano</p>}
+          {this.state.messageSend && (
+            <div className="center">
+              <p className="form__info">Wysłano wiadomość!</p>
+              <p className="form__info">
+                Skontaktujemy się z Tobą jak najszybciej.
+              </p>
+            </div>
+          )}
           <div className="form__container">
             <div className="form__nameContainer">
-              <label htmlFor="name">Imię</label>
               <input
                 type="text"
-                placeholder="Wpisz swoje imię"
                 name="name"
                 value={this.state.name}
                 onChange={this.handleChange}
+                required
                 onBlur={() => this.handleNameValidation()}
               />
+              <label htmlFor="name" className="input-label">
+                <span className="content">Imię</span>
+              </label>
               {this.state.nameError && (
-                <p style={{ color: "red" }}>Podane imię jest nieprawidłowe</p>
+                <p className="errorMessage" style={{ color: "red" }}>
+                  Nieprawidłowe imię
+                </p>
               )}
             </div>
             <div className="form__emailContainer">
-              <label htmlFor="email">E-mail</label>
               <input
                 type="email"
-                placeholder="Podaj adres e-mail"
                 name="email"
                 value={this.state.email}
                 onChange={this.handleChange}
+                required
                 onBlur={() => this.handleEmailValidation()}
               />
+              <label htmlFor="email" className="input-label">
+                <span className="content">E-mail</span>
+              </label>
               {this.state.emailError && (
-                <p style={{ color: "red" }}>Podany e-mail jest nieprawidłowy</p>
+                <p className="errorMessage" style={{ color: "red" }}>
+                  Nieprawidłowy e-mail
+                </p>
               )}
             </div>
           </div>
           <div className="form__messageContainer">
-            <label>Wiadomość</label>
             <textarea
-              placeholder="Wpisz treść wiadomości"
               name="message"
               // rows="3"
               value={this.state.message}
               onChange={this.handleChange}
+              required
               onBlur={() => this.handleMessageValidation()}
             ></textarea>
+            <label className="input-label">
+              <span className="content">Wiadomość</span>
+            </label>
             {this.state.messageError && (
-              <p style={{ color: "red" }}>
+              <p className="errorMessage" style={{ color: "red" }}>
                 Wiadomość musi mieć conajmniej 120 znaków
               </p>
             )}
