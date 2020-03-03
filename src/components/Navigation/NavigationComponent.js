@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link as ScrollLink } from "react-scroll";
-import { NavLink, Link, withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 // import user from "../../assets/user.svg";
 import logo from "../../assets/logo.svg";
 

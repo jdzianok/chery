@@ -2,9 +2,22 @@ import React, { Component } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Route, Switch } from "react-router-dom";
 import Home from "./components/Home/HomeComponent";
+import Register from "./components/Register/RegisterComponent";
+const firebase = require("firebase");
 
 class App extends Component {
   state = { user: null };
+
+  componentDidMount = () => {
+    firebase.auth().onAuthStateChanged(user => {
+      if (!user) {
+        this.setState({ user: null });
+      } else {
+        this.setState({ user: user.email });
+      }
+    });
+  };
+
   render() {
     return (
       <Router>
@@ -15,6 +28,7 @@ class App extends Component {
               path="/"
               component={() => <Home isLogged={this.state.user} />}
             />
+            <Route path="/signUp" component={Register} />
           </Switch>
         </div>
       </Router>
