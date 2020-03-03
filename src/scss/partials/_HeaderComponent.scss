@@ -9,6 +9,10 @@
   padding-bottom: 2rem;
   margin-top: 7.4rem;
 
+  @include tablet {
+    margin-top: 7.1rem;
+  }
+
   &__container {
     flex-basis: 100%;
     text-align: center;
