@@ -1,7 +1,13 @@
 .contact {
   width: 100%;
+  max-width: 1440px;
+  margin: 0 auto 4rem;
   display: flex;
   justify-content: center;
+
+  @include desktop {
+    margin-bottom: 8rem;
+  }
 
   &__backgroundImage {
     display: none;
@@ -9,8 +15,15 @@
     @include desktop {
       display: block;
       flex-basis: 50%;
-      border: 1px solid black;
     }
+
+    @media (min-width: 1440px) {
+      margin-right: 7%;
+    }
+  }
+
+  &__image {
+    width: 100%;
   }
 
   .form {
@@ -173,6 +186,7 @@
       font-weight: 500;
       border-radius: 2.5rem;
       transition: all 0.2s ease;
+      border: none;
     }
 
     &__submitBtn:focus {

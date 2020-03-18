@@ -1,57 +1,82 @@
-.summary {
-  display: flex;
-  flex-basis: 100%;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 2rem 2rem;
+.wrapper_threeColumns {
   background-color: $color-dark-blue;
-  color: $color-white;
-
-  @include tablet {
-    justify-content: space-around;
-    padding: 3rem 0;
-  }
-
-  &__box {
-    margin: 2rem 0;
-    text-align: center;
-    padding: 0 2rem;
-    max-width: 365px;
-  }
-
-  &__numberContainer {
+  .summary {
+    position: relative;
     display: flex;
+    flex-basis: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    flex-wrap: wrap;
     justify-content: center;
+    padding: 2rem 2rem 9.5rem;
+    color: $color-white;
 
-    img {
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      content: "";
       display: block;
-      width: 3rem;
+      height: 6.5rem;
+      width: 80%;
+      background-color: $color-white;
+
+      @include tablet {
+        width: 80vw;
+        max-width: 1600px;
+      }
     }
-  }
 
-  .diff {
-    width: 0.9rem;
-  }
-
-  &__number {
-    font-size: 5.9rem;
-    font-weight: 300;
-    padding-right: 1rem;
-
-    @include desktop {
-      font-size: 7rem;
+    @include tablet {
+      justify-content: space-around;
+      padding: 3rem 0 9.5rem;
     }
-  }
+    @media (min-width: 1440px) {
+      padding: 1.8vw 0 6vw;
+    }
 
-  &__title {
-    font-size: 2rem;
+    &__box {
+      margin: 2rem 0;
+      text-align: center;
+      padding: 0 2rem;
+      max-width: 365px;
+    }
 
-    padding: 1rem 0 1.6rem;
-  }
+    &__numberContainer {
+      display: flex;
+      justify-content: center;
 
-  &__subtitle {
-    font-size: 1.4rem;
-    font-weight: 300;
-    line-height: 2.2rem;
+      img {
+        display: block;
+        width: 3rem;
+      }
+    }
+
+    .diff {
+      width: 0.9rem;
+    }
+
+    &__number {
+      font-size: 5.9rem;
+      font-weight: 300;
+      padding-right: 1rem;
+
+      @include desktop {
+        font-size: 7rem;
+      }
+    }
+
+    &__title {
+      font-size: 2rem;
+
+      padding: 1rem 0 1.6rem;
+    }
+
+    &__subtitle {
+      font-size: 1.4rem;
+      font-weight: 300;
+      line-height: 2.2rem;
+    }
   }
 }

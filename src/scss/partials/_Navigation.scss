@@ -1,11 +1,9 @@
 .menu {
   position: fixed;
   top: 0;
-  // left: 0;
-  // right: 0;
   z-index: 10;
   width: 100%;
-  max-width: 1440px;
+  margin: 0 auto;
   display: flex;
   padding: 2rem;
   background-color: rgba(255, 255, 255, 0.8);
@@ -53,10 +51,7 @@
       position: relative;
       flex-direction: row;
       top: 0;
-      // background-color: $color-white;
       background-color: transparent;
-      // -webkit-backdrop-filter: blur(20px);
-      // backdrop-filter: blur(20px);
       height: auto;
     }
 
@@ -118,7 +113,6 @@
       border: 2px solid $color-white;
       border-radius: 2.5rem;
       background-color: $color-blue;
-      // padding: 10px 15px;
       margin: 1rem;
       font-size: 2rem;
       transition: all 0.2s ease;
@@ -128,7 +122,6 @@
         margin: 0;
         border-color: $color-blue;
         font-weight: 500;
-        // padding: 10px 18px;
       }
       @include desktop {
         font-size: 1.6rem;
@@ -189,7 +182,6 @@
       }
       &__loginBtn {
         border: none;
-        // background-color: $color-white;
         background-color: transparent;
       }
     }
@@ -256,4 +248,10 @@
       background-color: #000;
     }
   }
+}
+
+.menu--scroll {
+  box-shadow: 60px 40px 80px 0 rgba(47, 51, 59, 0.1);
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease-in-out 0s;
 }

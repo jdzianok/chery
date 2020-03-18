@@ -5,17 +5,19 @@ import instagram from "../../assets/instagram.svg";
 
 const FooterComponent = () => {
   return (
-    <footer className="footer">
-      <div className="footer__copy">
-        <p className="footer__text">Copyright Chery</p>
-        <p className="footer__text">Polityka prywatności</p>
-      </div>
-      <div className="footer__media">
-        <img className="footer__logo" src={facebook} alt="facebook" />
-        <img className="footer__logo" src={twitter} alt="twitter" />
-        <img className="footer__logo" src={instagram} alt="instagram" />
-      </div>
-    </footer>
+    <div className="wrapper_footer">
+      <footer className="footer">
+        <div className="footer__copy">
+          <p className="footer__text">Copyright Chery</p>
+          <p className="footer__text">Polityka prywatności</p>
+        </div>
+        <div className="footer__media">
+          <img className="footer__logo" src={facebook} alt="facebook" />
+          <img className="footer__logo" src={twitter} alt="twitter" />
+          <img className="footer__logo" src={instagram} alt="instagram" />
+        </div>
+      </footer>
+    </div>
   );
 };
 

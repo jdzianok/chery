@@ -14,7 +14,7 @@ class HeaderComponent extends Component {
             Zacznij pomagać!
             <br />
             Oddaj niechciane rzeczy
-            <br />w zaufane ręce
+            <br /> w zaufane ręce
           </h1>
         </div>
         <div className="header__backgroundContainer">

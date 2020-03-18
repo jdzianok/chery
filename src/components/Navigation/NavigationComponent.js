@@ -14,7 +14,25 @@ const options = {
 
 class NavigationComponent extends Component {
   state = {
-    openMenu: false
+    openMenu: false,
+    scroll: false
+  };
+
+  componentDidMount() {
+    window.addEventListener("scroll", this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
+  }
+
+  handleScroll = () => {
+    const isTop = window.scrollY < 100;
+    if (isTop !== true) {
+      this.setState({ scroll: true });
+    } else {
+      this.setState({ scroll: false });
+    }
   };
 
   handleOpenMenu = () => {
@@ -31,10 +49,10 @@ class NavigationComponent extends Component {
   };
 
   render() {
-    const { openMenu } = this.state;
+    const { openMenu, scroll } = this.state;
     const { isLogged } = this.props;
     return (
-      <div className="menu">
+      <div className={`menu${scroll ? " menu--scroll" : ""}`}>
         <div className="menu__logo">
           <Link to="/">
             <img src={logo} alt="logo" className="menu__image" />

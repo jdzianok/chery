@@ -4,6 +4,10 @@
   align-items: center;
   margin-bottom: 4rem;
 
+  @include desktop {
+    margin-bottom: 15rem;
+  }
+
   .head {
     width: 100%;
     max-width: 670px;
@@ -105,7 +109,8 @@
     @include desktop {
       width: 100%;
       max-width: 1200px;
-      margin-top: 3rem;
+      margin: 3rem auto 0;
+      padding: 0 5%;
     }
 
     .item {
@@ -122,8 +127,8 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        margin-top: 5rem;
-        margin-bottom: 5rem;
+        margin: 5rem auto;
+
         padding-bottom: 3rem;
       }
 
@@ -161,7 +166,7 @@
     font-size: 2rem;
     color: $color-dark-blue;
     font-weight: 500;
-    margin: 0 2rem;
+    margin: 0 1rem;
     width: 4rem;
     height: 4rem;
     border-radius: 50%;
@@ -175,5 +180,13 @@
 
   .pagination__btn:focus {
     outline: none;
+  }
+
+  .pagination__btn:hover {
+    background: #eee;
+  }
+
+  .pagination__btn--active:hover {
+    background: $color-blue;
   }
 }

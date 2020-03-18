@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import contact_bg from "../../assets/contact_bg.png";
 
 class ContactComponent extends Component {
   state = {
@@ -79,7 +80,9 @@ class ContactComponent extends Component {
   render() {
     return (
       <section className="contact">
-        <div className="contact__backgroundImage"></div>
+        <div className="contact__backgroundImage">
+          <img src={contact_bg} className="contact__image" alt="phone" />
+        </div>
         <form className="form" onSubmit={this.handleSubmit}>
           <h3 className="form__header">Skontaktuj się z nami</h3>
           {this.state.messageSend && (

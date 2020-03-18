@@ -3,25 +3,9 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 6.5rem 0 0;
+  max-width: 1440px;
+  margin: 0 auto;
   text-align: center;
-
-  &::before,
-  &::after {
-    position: absolute;
-    top: 0;
-    content: "";
-    display: block;
-    height: 6.5rem;
-    width: 7%;
-    background-color: $color-dark-blue;
-  }
-  &::before {
-    left: 0;
-  }
-  &::after {
-    right: 0;
-  }
 
   &__header {
     width: 50%;
@@ -50,7 +34,6 @@
 
     @include desktop {
       padding: 0;
-      max-width: 1200px;
     }
   }
 
@@ -132,6 +115,17 @@
         display: inline-block;
         padding-right: 1rem;
       }
+
+      img {
+        display: block;
+        transition: all 0.2s ease-in-out;
+      }
+    }
+
+    .stepsLink:hover img {
+      background: rgba(1, 102, 235, 0.1);
+      border-radius: 50%;
+      transform: scale(1.2);
     }
   }
 }
