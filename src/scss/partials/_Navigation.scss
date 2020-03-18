@@ -130,8 +130,8 @@
 
     &__signUpBtn:hover {
       @include tablet {
-        background-color: $color-dark-blue;
-        border-color: $color-dark-blue;
+        background-color: $color-blue-hover;
+        border-color: $color-blue-hover;
       }
     }
 
@@ -176,6 +176,9 @@
     @include tablet {
       &__link-in {
         color: $color-blue;
+      }
+      &__link-in:hover {
+        color: $color-dark-blue;
       }
       &__link-up {
         padding: 1rem 2rem;

@@ -1,6 +1,6 @@
 # Chery
 
-It's a project of a website that helps you donate redundant things for charity organizations. You can log in or register as a new user through firebase. You can also send a message. In the near future, I want to add a subpage where you will fill the form to donate your stuff for dedicated charity.
+It's a project of a website that helps you donate redundant things for charity organizations. You can log in or register as a new user through firebase. You can also send a message using the contact form. In the near future, I want to add a subpage where you will fill the form to donate your stuff for dedicated charity.
 
 App was created with `create-react-app`
 

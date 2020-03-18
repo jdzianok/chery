@@ -114,11 +114,12 @@
       p {
         display: inline-block;
         padding-right: 1rem;
+        transition: all 0.2s ease-in-out;
       }
     }
+  }
 
-    .link:hover {
-      background-color: rgb(245, 245, 245);
-    }
+  &__btn:hover p {
+    color: $color-blue;
   }
 }

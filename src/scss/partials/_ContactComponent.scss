@@ -182,7 +182,7 @@
       font-size: 1.6rem;
       color: $color-white;
       background-color: $color-blue;
-      padding: 1rem 5rem;
+      padding: 1.3rem 5rem;
       font-weight: 500;
       border-radius: 2.5rem;
       transition: all 0.2s ease;
@@ -195,7 +195,7 @@
 
     &__submitBtn:hover {
       @include tablet {
-        background-color: $color-dark-blue;
+        background-color: $color-blue-hover;
       }
     }
   }

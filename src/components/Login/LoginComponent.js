@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import NavigationComponent from "../Navigation/NavigationComponent";
+import header_left from "../../assets/header_left.png";
+import header_right from "../../assets/header_right.png";
 const firebase = require("firebase");
 
 class LoginComponent extends Component {
@@ -48,6 +50,18 @@ class LoginComponent extends Component {
       <>
         <NavigationComponent />
         <section className="loginContainer">
+          <div className="loginContainer__backgroundContainer">
+            <img
+              className="loginContainer__background--left"
+              src={header_left}
+              alt=""
+            />
+            <img
+              className="loginContainer__background--right"
+              src={header_right}
+              alt=""
+            />
+          </div>
           <form className="loginForm" onSubmit={e => this.submitLogin(e)}>
             <h2 className="loginForm__header">Zaloguj się</h2>
             <div className="loginForm__formContent">
