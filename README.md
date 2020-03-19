@@ -4,7 +4,7 @@ It's a project of a website that helps you donate redundant things for charity o
 
 App was created with `create-react-app`
 
-## Take a look at my [page](https://jdzianok.github.io/chery/)
+## Take a look at my page [here](https://jdzianok.github.io/chery/)
 
 ## Preview
 
