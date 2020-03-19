@@ -9,7 +9,7 @@ const options = {
   duration: 700,
   spy: true,
   smooth: true,
-  offset: -20
+  offset: -100
 };
 
 class NavigationComponent extends Component {
@@ -77,38 +77,54 @@ class NavigationComponent extends Component {
         </div>
         <nav className={`navigation${openMenu ? " navigation--open" : ""}`}>
           <ul className="navigation__list">
-            <li className="navigation__item" onClick={this.handleOpen}>
+            <li className="navigation__item">
               {this.props.history.location.pathname !== "/" ? (
                 <p>O co chodzi?</p>
               ) : (
-                <ScrollLink to="steps" {...options}>
+                <ScrollLink
+                  onClick={this.handleOpenMenu}
+                  to="steps"
+                  {...options}
+                >
                   O co chodzi?
                 </ScrollLink>
               )}
             </li>
-            <li className="navigation__item" onClick={this.handleOpen}>
+            <li className="navigation__item">
               {this.props.history.location.pathname !== "/" ? (
                 <p>O nas</p>
               ) : (
-                <ScrollLink to="aboutUs" {...options}>
+                <ScrollLink
+                  onClick={this.handleOpenMenu}
+                  to="aboutUs"
+                  {...options}
+                >
                   O nas
                 </ScrollLink>
               )}
             </li>
-            <li className="navigation__item" onClick={this.handleOpen}>
+            <li className="navigation__item">
               {this.props.history.location.pathname !== "/" ? (
                 <p>Fundacje i organizacje</p>
               ) : (
-                <ScrollLink to="whoWeHelp" {...options}>
+                <ScrollLink
+                  onClick={this.handleOpenMenu}
+                  to="whoWeHelp"
+                  {...options}
+                >
                   Fundacje i organizacje
                 </ScrollLink>
               )}
             </li>
-            <li className="navigation__item" onClick={this.handleOpen}>
+            <li className="navigation__item">
               {this.props.history.location.pathname !== "/" ? (
                 <p>Kontakt</p>
               ) : (
-                <ScrollLink to="formContact" {...options}>
+                <ScrollLink
+                  onClick={this.handleOpenMenu}
+                  to="contact"
+                  {...options}
+                >
                   Kontakt
                 </ScrollLink>
               )}
