@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/chery/static/css/main.67a249e0.chunk.css",
-    "main.js": "/chery/static/js/main.2c3e3c23.chunk.js",
-    "main.js.map": "/chery/static/js/main.2c3e3c23.chunk.js.map",
+    "main.js": "/chery/static/js/main.471ce862.chunk.js",
+    "main.js.map": "/chery/static/js/main.471ce862.chunk.js.map",
     "runtime-main.js": "/chery/static/js/runtime-main.439a43ec.js",
     "runtime-main.js.map": "/chery/static/js/runtime-main.439a43ec.js.map",
     "static/js/2.fb58f4f1.chunk.js": "/chery/static/js/2.fb58f4f1.chunk.js",
     "static/js/2.fb58f4f1.chunk.js.map": "/chery/static/js/2.fb58f4f1.chunk.js.map",
     "index.html": "/chery/index.html",
-    "precache-manifest.d2c8d71db0b0ed531560440398376c35.js": "/chery/precache-manifest.d2c8d71db0b0ed531560440398376c35.js",
+    "precache-manifest.a798f4824aeb7321ee465a7bcc44fe3d.js": "/chery/precache-manifest.a798f4824aeb7321ee465a7bcc44fe3d.js",
     "service-worker.js": "/chery/service-worker.js",
     "static/css/main.67a249e0.chunk.css.map": "/chery/static/css/main.67a249e0.chunk.css.map",
     "static/js/2.fb58f4f1.chunk.js.LICENSE": "/chery/static/js/2.fb58f4f1.chunk.js.LICENSE",
@@ -35,6 +35,6 @@
     "static/js/runtime-main.439a43ec.js",
     "static/js/2.fb58f4f1.chunk.js",
     "static/css/main.67a249e0.chunk.css",
-    "static/js/main.2c3e3c23.chunk.js"
+    "static/js/main.471ce862.chunk.js"
   ]
 }
