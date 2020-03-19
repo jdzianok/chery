@@ -58,8 +58,13 @@ class NavigationComponent extends Component {
     return (
       <div className={`menu${scroll ? " menu--scroll" : ""}`}>
         <div className="menu__logo">
-          <Link onClick={this.handleScrollToTop} to="/">
-            <img src={logo} alt="logo" className="menu__image" />
+          <Link to="/">
+            <img
+              src={logo}
+              alt="logo"
+              className="menu__image"
+              onClick={this.handleScrollToTop}
+            />
           </Link>
         </div>
         <div className="menu__hamburger" onClick={this.handleOpenMenu}>
