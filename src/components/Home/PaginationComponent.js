@@ -9,6 +9,7 @@ class PaginationComponent extends Component {
   };
 
   componentDidMount() {
+    this.mounted = true;
     const url = "https://api.jsonbin.io/b/5e494fb8d18e40166179b674";
     return fetch(url)
       .then(response => {
@@ -19,11 +20,17 @@ class PaginationComponent extends Component {
         }
       })
       .then(data => {
-        this.setState({ data });
+        if (this.mounted) {
+          this.setState({ data });
+        }
       })
       .catch(error => {
         console.log(error);
       });
+  }
+
+  componentWillUnmount() {
+    this.mounted = false;
   }
 
   handleCategoryChange = event => {

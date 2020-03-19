@@ -35,6 +35,10 @@ class NavigationComponent extends Component {
     }
   };
 
+  handleScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   handleOpenMenu = () => {
     this.setState({ openMenu: !this.state.openMenu });
   };
@@ -54,7 +58,7 @@ class NavigationComponent extends Component {
     return (
       <div className={`menu${scroll ? " menu--scroll" : ""}`}>
         <div className="menu__logo">
-          <Link to="/">
+          <Link onClick={this.handleScrollToTop} to="/">
             <img src={logo} alt="logo" className="menu__image" />
           </Link>
         </div>

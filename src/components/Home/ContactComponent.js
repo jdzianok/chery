@@ -42,7 +42,7 @@ class ContactComponent extends Component {
       message
     };
     const url = "https://fer-api.coderslab.pl/v1/portfolio/contact";
-    console.log(contactObj, this.state);
+    // console.log(contactObj, this.state);
     return fetch(url, {
       method: "POST",
       headers: {
