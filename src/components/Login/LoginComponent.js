@@ -8,26 +8,45 @@ const firebase = require("firebase");
 
 class LoginComponent extends Component {
   state = {
-    email: null,
-    password: null,
-    loginError: ""
+    email: "",
+    password: "",
+    loginError: "",
+    emailError: ""
+  };
+
+  validate = () => {
+    this.setState({ emailError: "" });
+    let emailError = "";
+
+    if (!this.state.email.includes("@") && this.state.email.length < 4) {
+      emailError = "Niepoprawny email";
+    }
+
+    if (emailError) {
+      this.setState({ emailError });
+      return false;
+    }
+
+    return true;
   };
 
   submitLogin = e => {
     e.preventDefault();
-
-    firebase
-      .auth()
-      .signInWithEmailAndPassword(this.state.email, this.state.password)
-      .then(() => {
-        this.props.history.push("/");
-      })
-      .catch(error => {
-        this.setState({
-          loginError: "Server error"
+    const isValid = this.validate();
+    if (isValid) {
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(this.state.email, this.state.password)
+        .then(() => {
+          this.props.history.push("/");
+        })
+        .catch(error => {
+          this.setState({
+            loginError: "Niepoprawne hasło lub login"
+          });
+          console.log(error);
         });
-        console.log(error);
-      });
+    }
   };
 
   userTyping = (whichInput, event) => {
@@ -71,16 +90,21 @@ class LoginComponent extends Component {
                 autoFocus
                 autoComplete="email"
                 required
+                placeholder=" "
                 onChange={e => this.userTyping("email", e)}
               />
               <label htmlFor="register-email-input" className="input-label">
                 <span className="content">E-mail</span>
               </label>
             </div>
+            {this.state.emailError ? (
+              <p className="loginForm__error">{this.state.emailError}</p>
+            ) : null}
             <div className="loginForm__formContent">
               <input
                 id="register-password-input"
                 type="password"
+                placeholder=" "
                 required
                 onChange={e => this.userTyping("password", e)}
               />
@@ -89,11 +113,8 @@ class LoginComponent extends Component {
               </label>
             </div>
             {this.state.loginError ? (
-              <p style={{ color: "red", textAlign: "center", fontSize: 16 }}>
-                {this.state.loginError}
-              </p>
+              <p className="loginForm__error">{this.state.loginError}</p>
             ) : null}
-
             <button
               type="submit"
               onClick={e => this.submitLogin(e)}
@@ -103,7 +124,7 @@ class LoginComponent extends Component {
             </button>
             <p className="loginForm__info">Nie masz konta?</p>
             <button className="loginForm__switchBtn">
-              <Link className="link" to="/signIn">
+              <Link className="link" to="/signUp">
                 Zarejestruj się
               </Link>
             </button>

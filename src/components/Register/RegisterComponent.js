@@ -7,48 +7,78 @@ const firebase = require("firebase");
 
 class RegisterComponent extends Component {
   state = {
-    email: null,
-    password: null,
-    passwordConfirmation: null,
-    registerError: ""
+    email: "",
+    password: "",
+    passwordConfirmation: "",
+    passwordConfirmationError: "",
+    passwordError: "",
+    emailError: ""
   };
 
-  formIsValid = () => this.state.password === this.state.passwordConfirmation;
+  validate = () => {
+    this.setState({
+      passwordError: "",
+      emailError: "",
+      passwordConfirmationError: ""
+    });
+    let emailError = "";
+    let passwordError = "";
+    let passwordConfirmationError = "";
+
+    if (!this.state.email.includes("@") && this.state.email.length < 4) {
+      emailError = "Niepoprawny email";
+    }
+
+    if (this.state.password.lenght < 5) {
+      passwordError = "Za krótkie hasło";
+    }
+
+    if (this.state.password !== this.state.passwordConfirmation) {
+      passwordConfirmationError = "Hasła nie są jednakowe";
+    }
+
+    if (emailError || passwordError || passwordConfirmationError) {
+      this.setState({ emailError, passwordError, passwordConfirmationError });
+      return false;
+    }
+
+    return true;
+  };
 
   submitRegister = e => {
     e.preventDefault();
-    if (!this.formIsValid()) {
-      this.setState({
-        registerError: "Hasła nie są jednakowe!"
-      });
-      return;
-    }
+    const isValid = this.validate();
+    if (isValid) {
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(this.state.email, this.state.password)
+        .then(authResponse => {
+          const userObj = {
+            email: authResponse.user.email
+          };
 
-    firebase
-      .auth()
-      .createUserWithEmailAndPassword(this.state.email, this.state.password)
-      .then(authResponse => {
-        const userObj = {
-          email: authResponse.user.email
-        };
-
-        firebase
-          .firestore()
-          .collection("users")
-          .doc(this.state.email)
-          .set(userObj)
-          .then(() => {
-            this.props.history.push("/");
-          })
-          .catch(dbError => {
-            console.log(dbError);
-            this.setState({ registerError: "Nie udało się dodać użytkownika" });
+          firebase
+            .firestore()
+            .collection("users")
+            .doc(this.state.email)
+            .set(userObj)
+            .then(() => {
+              this.props.history.push("/");
+            })
+            .catch(dbError => {
+              console.log(dbError);
+              this.setState({
+                passwordConfirmationError: "Błąd w rejestracji użytkownika"
+              });
+            });
+        })
+        .catch(authError => {
+          console.log(authError);
+          this.setState({
+            passwordConfirmationError: "Błąd w rejestracji użytkownika"
           });
-      })
-      .catch(authError => {
-        console.log(authError);
-        this.setState({ registerError: "Nie udało się dodać użytkownika" });
-      });
+        });
+    }
   };
 
   userTyping = (whichInput, event) => {
@@ -95,6 +125,7 @@ class RegisterComponent extends Component {
                 type="email"
                 autoFocus
                 autoComplete="email"
+                placeholder=" "
                 required
                 onChange={e => this.userTyping("email", e)}
               />
@@ -102,10 +133,14 @@ class RegisterComponent extends Component {
                 <span className="content">E-mail</span>
               </label>
             </div>
+            {this.state.emailError ? (
+              <p className="registerForm__error">{this.state.emailError}</p>
+            ) : null}
             <div className="registerForm__formContent">
               <input
                 id="register-password-input"
                 type="password"
+                placeholder=" "
                 required
                 onChange={e => this.userTyping("password", e)}
               />
@@ -113,10 +148,14 @@ class RegisterComponent extends Component {
                 <span className="content">Hasło</span>
               </label>
             </div>
+            {this.state.passwordError ? (
+              <p className="registerForm__error">{this.state.passwordError}</p>
+            ) : null}
             <div className="registerForm__formContent">
               <input
                 id="register-password-confirmation-input"
                 type="password"
+                placeholder=" "
                 required
                 onChange={e => this.userTyping("passwordConfirmation", e)}
               />
@@ -127,12 +166,11 @@ class RegisterComponent extends Component {
                 <span className="content">Powtórz hasło</span>
               </label>
             </div>
-            {this.state.registerError ? (
-              <p style={{ color: "red", textAlign: "center", fontSize: 16 }}>
-                {this.state.registerError}
+            {this.state.passwordConfirmationError ? (
+              <p className="registerForm__error">
+                {this.state.passwordConfirmationError}
               </p>
             ) : null}
-
             <button
               type="submit"
               onClick={e => this.submitRegister(e)}

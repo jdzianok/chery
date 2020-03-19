@@ -145,7 +145,7 @@ class ContactComponent extends Component {
             </label>
             {this.state.messageError && (
               <p className="errorMessage" style={{ color: "red" }}>
-                Wiadomość musi mieć conajmniej 120 znaków
+                Wiadomość musi mieć co najmniej 120 znaków
               </p>
             )}
           </div>

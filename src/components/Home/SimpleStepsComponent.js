@@ -32,7 +32,7 @@ const SimpleStepsComponent = () => {
           <p className="steps__subtitle">Wybierz dogodny termin</p>
         </div>
         <button className="steps__btn">
-          <Link to="/logowanie" className="stepsLink">
+          <Link to="/signIn" className="stepsLink">
             <p>Oddaj rzeczy</p>
             <img src={arrow_right} alt="" />
           </Link>

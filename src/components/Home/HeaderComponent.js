@@ -27,13 +27,13 @@ class HeaderComponent extends Component {
         </div>
         <div className="header__buttonContainer">
           <button className="header__btn">
-            <Link className="link" to="/logowanie">
+            <Link className="link" to="/signIn">
               <p>Oddaj rzeczy</p>
               <img src={arrow_right} alt="" />
             </Link>
           </button>
           <button className="header__btn">
-            <Link className="link" to="/logowanie">
+            <Link className="link" to="/signIn">
               <p>Zorganizuj zbiórkę</p>
               <img src={arrow_right} alt="" />
             </Link>
