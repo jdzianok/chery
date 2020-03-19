@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.css": "/chery/static/css/main.67a249e0.chunk.css",
+    "main.js": "/chery/static/js/main.b7e6d32c.chunk.js",
+    "main.js.map": "/chery/static/js/main.b7e6d32c.chunk.js.map",
+    "runtime-main.js": "/chery/static/js/runtime-main.439a43ec.js",
+    "runtime-main.js.map": "/chery/static/js/runtime-main.439a43ec.js.map",
+    "static/js/2.554fbd04.chunk.js": "/chery/static/js/2.554fbd04.chunk.js",
+    "static/js/2.554fbd04.chunk.js.map": "/chery/static/js/2.554fbd04.chunk.js.map",
+    "index.html": "/chery/index.html",
+    "precache-manifest.88b314914e754b43131e4460b49a90b6.js": "/chery/precache-manifest.88b314914e754b43131e4460b49a90b6.js",
+    "service-worker.js": "/chery/service-worker.js",
+    "static/css/main.67a249e0.chunk.css.map": "/chery/static/css/main.67a249e0.chunk.css.map",
+    "static/js/2.554fbd04.chunk.js.LICENSE": "/chery/static/js/2.554fbd04.chunk.js.LICENSE",
+    "static/media/1_step.svg": "/chery/static/media/1_step.b938b747.svg",
+    "static/media/2_step.svg": "/chery/static/media/2_step.066b30d5.svg",
+    "static/media/3_step.svg": "/chery/static/media/3_step.929238b9.svg",
+    "static/media/4_step.svg": "/chery/static/media/4_step.0a76472d.svg",
+    "static/media/arrow_right_big.svg": "/chery/static/media/arrow_right_big.b1ddb4ba.svg",
+    "static/media/contact_bg.png": "/chery/static/media/contact_bg.d5fcf76a.png",
+    "static/media/main.scss": "/chery/static/media/curve_top.f19f7813.svg",
+    "static/media/exclamation.svg": "/chery/static/media/exclamation.0d93d38c.svg",
+    "static/media/facebook.svg": "/chery/static/media/facebook.5c793275.svg",
+    "static/media/groupPhoto.png": "/chery/static/media/groupPhoto.424f3258.png",
+    "static/media/header_left.png": "/chery/static/media/header_left.8b24e41d.png",
+    "static/media/header_right.png": "/chery/static/media/header_right.51a61f1d.png",
+    "static/media/instagram.svg": "/chery/static/media/instagram.a77d14c6.svg",
+    "static/media/logo.svg": "/chery/static/media/logo.cafd5536.svg",
+    "static/media/plus.svg": "/chery/static/media/plus.f29c6bd0.svg",
+    "static/media/signature.svg": "/chery/static/media/signature.9757766c.svg",
+    "static/media/smile.svg": "/chery/static/media/smile.ead3a64f.svg",
+    "static/media/twitter.svg": "/chery/static/media/twitter.55194aad.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.439a43ec.js",
+    "static/js/2.554fbd04.chunk.js",
+    "static/css/main.67a249e0.chunk.css",
+    "static/js/main.b7e6d32c.chunk.js"
+  ]
+}
