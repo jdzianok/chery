@@ -2,7 +2,7 @@
   margin-top: 7rem;
   width: 100%;
 
-  @include tablet {
+  @media (min-width: 768px) and (min-height: 500px) {
     min-height: calc(100vh - 7rem);
     padding: 3rem 0;
     background-color: $color-bg-header;
@@ -14,7 +14,7 @@
     flex-basis: 100%;
     justify-content: space-between;
 
-    @include tablet {
+    @media (min-width: 768px) and (min-height: 500px) {
       display: flex;
     }
   }
@@ -22,9 +22,10 @@
   &__background--left,
   &__background--right {
     margin-top: -6rem;
-    display: block;
+    display: none;
 
-    @include tablet {
+    @media (min-width: 768px) and (min-height: 500px) {
+      display: block;
       width: 40%;
     }
 
@@ -41,7 +42,7 @@
     padding: 5rem 6rem 3rem 6rem;
     background-color: rgba(255, 255, 255, 0.9);
 
-    @include tablet {
+    @media (min-width: 768px) and (min-height: 500px) {
       border-radius: 2.5rem;
       position: absolute;
       top: 50%;
