@@ -130,7 +130,7 @@ class RegisterComponent extends Component {
                 onChange={e => this.userTyping("email", e)}
               />
               <label htmlFor="register-email-input" className="input-label">
-                <span className="content">E-mail</span>
+                <span className="content">E-mail*</span>
               </label>
             </div>
             {this.state.emailError ? (
@@ -145,7 +145,7 @@ class RegisterComponent extends Component {
                 onChange={e => this.userTyping("password", e)}
               />
               <label htmlFor="register-password-input" className="input-label">
-                <span className="content">Hasło</span>
+                <span className="content">Hasło*</span>
               </label>
             </div>
             {this.state.passwordError ? (
@@ -163,7 +163,7 @@ class RegisterComponent extends Component {
                 htmlFor="register-password-confirmation-input"
                 className="input-label"
               >
-                <span className="content">Powtórz hasło</span>
+                <span className="content">Powtórz hasło*</span>
               </label>
             </div>
             {this.state.passwordConfirmationError ? (

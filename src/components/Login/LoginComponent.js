@@ -94,7 +94,7 @@ class LoginComponent extends Component {
                 onChange={e => this.userTyping("email", e)}
               />
               <label htmlFor="register-email-input" className="input-label">
-                <span className="content">E-mail</span>
+                <span className="content">E-mail*</span>
               </label>
             </div>
             {this.state.emailError ? (
@@ -109,7 +109,7 @@ class LoginComponent extends Component {
                 onChange={e => this.userTyping("password", e)}
               />
               <label htmlFor="register-password-input" className="input-label">
-                <span className="content">Hasło</span>
+                <span className="content">Hasło*</span>
               </label>
             </div>
             {this.state.loginError ? (
