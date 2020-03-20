@@ -23,10 +23,9 @@
 
     &__text {
       font-size: 1.2rem;
-      color: $color-nav;
+      color: rgb(181, 181, 181);
       padding-bottom: 2rem;
       font-weight: 600;
-      opacity: 53%;
 
       @include tablet {
         padding-bottom: 0;
