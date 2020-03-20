@@ -104,7 +104,7 @@ class ContactComponent extends Component {
                 onBlur={() => this.handleNameValidation()}
               />
               <label htmlFor="name" className="input-label">
-                <span className="content">Imię</span>
+                <span className="content">Imię*</span>
               </label>
               {this.state.nameError && (
                 <p className="errorMessage" style={{ color: "red" }}>
@@ -122,7 +122,7 @@ class ContactComponent extends Component {
                 onBlur={() => this.handleEmailValidation()}
               />
               <label htmlFor="email" className="input-label">
-                <span className="content">E-mail</span>
+                <span className="content">E-mail*</span>
               </label>
               {this.state.emailError && (
                 <p className="errorMessage" style={{ color: "red" }}>
@@ -141,7 +141,7 @@ class ContactComponent extends Component {
               onBlur={() => this.handleMessageValidation()}
             ></textarea>
             <label className="input-label">
-              <span className="content">Wiadomość</span>
+              <span className="content">Wiadomość*</span>
             </label>
             {this.state.messageError && (
               <p className="errorMessage" style={{ color: "red" }}>
