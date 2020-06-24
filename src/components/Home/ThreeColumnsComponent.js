@@ -3,7 +3,7 @@ import plus from "../../assets/plus.svg";
 import exclamation from "../../assets/exclamation.svg";
 import smile from "../../assets/smile.svg";
 
-const ThreeColumns = () => {
+const ThreeColumnsComponent = () => {
   return (
     <div className="wrapper_threeColumns">
       <section className="summary">
@@ -45,4 +45,4 @@ const ThreeColumns = () => {
   );
 };
 
-export default ThreeColumns;
+export default ThreeColumnsComponent;

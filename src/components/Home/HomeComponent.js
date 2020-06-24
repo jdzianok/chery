@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import Navigation from "../Navigation/NavigationComponent";
+import NavigationComponent from "../Navigation/NavigationComponent";
 import HeaderComponent from "./HeaderComponent";
-import ThreeColumns from "./ThreeColumns";
+import ThreeColumnsComponent from "./ThreeColumnsComponent";
 import SimpleStepsComponent from "./SimpleStepsComponent";
 import AboutUsComponent from "./AboutUsComponent";
 import PaginationComponent from "./PaginationComponent";
@@ -16,10 +16,10 @@ class HomeComponent extends Component {
   render() {
     return (
       <div id="start">
-        <Navigation isLogged={this.props.isLogged} />
-        <HeaderComponent />
-        <ThreeColumns />
-        <SimpleStepsComponent />
+        <NavigationComponent isLogged={this.props.isLogged} />
+        <HeaderComponent isLogged={this.props.isLogged}/>
+        <ThreeColumnsComponent />
+        <SimpleStepsComponent isLogged={this.props.isLogged}/>
         <AboutUsComponent />
         <PaginationComponent />
         <ContactComponent />

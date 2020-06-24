@@ -7,6 +7,7 @@ import arrow_right from "../../assets/arrow_right_big.svg";
 class HeaderComponent extends Component {
   state = {};
   render() {
+      const { isLogged } = this.props;
     return (
       <header className="header">
         <div className="header__container">
@@ -27,7 +28,7 @@ class HeaderComponent extends Component {
         </div>
         <div className="header__buttonContainer">
           <button className="header__btn">
-            <Link className="link" to="/signIn">
+            <Link className="link" to={isLogged ? "/stepForm" : "/signIn"}>
               <p>Oddaj rzeczy</p>
               <img src={arrow_right} alt="" />
             </Link>

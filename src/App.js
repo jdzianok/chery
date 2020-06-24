@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import Home from "./components/Home/HomeComponent";
 import Register from "./components/Register/RegisterComponent";
 import Login from "./components/Login/LoginComponent";
+import MultiStepFormComponent from './components/MultiStepForm/MultiStepFormComponent';
 const firebase = require("firebase");
 
 class App extends Component {
@@ -31,6 +32,7 @@ class App extends Component {
             />
             <Route path="/signUp" component={Register} />
             <Route path="/signIn" component={Login} />
+            <Route path="/stepForm" component={() => <MultiStepFormComponent isLogged={this.state.user} />} />
           </Switch>
         </div>
       </Router>
