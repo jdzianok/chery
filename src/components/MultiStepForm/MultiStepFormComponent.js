@@ -49,13 +49,11 @@ class MultiStepFormComponent extends Component {
 
   handleStep = direction => {
     const { currentStep, formStep } = this.state;
-    // if (direction === "next" && formStep === 4) {
-    //   this.setState({
-    //     formStep: formStep + 1
-    //   });
-
-    // } else
-    if (direction === "next" && currentStep <= 2) {
+    if (direction === "next" && formStep === 4) {
+      this.setState({
+        formStep: formStep + 1
+      });
+    } else if (direction === "next" && currentStep <= 2) {
       this.setState({
         currentStep: currentStep + 1,
         formStep: formStep + 1
