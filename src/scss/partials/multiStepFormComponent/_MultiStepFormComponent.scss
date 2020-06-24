@@ -4,9 +4,10 @@
 
 .stepper {
   max-width: 1000px;
+  margin: 10rem auto 0;
 }
 
-// .stepper div div div div a,
-// .stepper div div div div span {
-//   line-height: 36px !important;
-// }
+.stepper div div div div a,
+.stepper div div div div span {
+  line-height: 36px !important;
+}
