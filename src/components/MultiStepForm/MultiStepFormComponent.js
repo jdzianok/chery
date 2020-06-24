@@ -49,12 +49,18 @@ class MultiStepFormComponent extends Component {
 
   handleStep = direction => {
     const { currentStep, formStep } = this.state;
+    // if (direction === "next" && formStep === 4) {
+    //   this.setState({
+    //     formStep: formStep + 1
+    //   });
+
+    // } else
     if (direction === "next" && currentStep <= 2) {
       this.setState({
         currentStep: currentStep + 1,
         formStep: formStep + 1
       });
-    } else if (direction === "next" && formStep <= 4) {
+    } else if (direction === "next" && formStep < 5) {
       this.setState({
         formStep: formStep + 1
       });
@@ -70,7 +76,20 @@ class MultiStepFormComponent extends Component {
     } else return;
   };
 
-  showStep = () => {
+  handleChange = input => e => {
+    const isCheckbox = e.target.type === "checkbox";
+    this.setState({
+      [input ? input : e.target.name]: isCheckbox
+        ? e.target.checked
+        : e.target.value
+    });
+  };
+
+  handleSwitchClear = () => {
+    console.log("dziala");
+  };
+
+  renderStep = () => {
     const {
       formStep,
       clothes,
@@ -116,22 +135,22 @@ class MultiStepFormComponent extends Component {
     };
 
     if (formStep === 0) {
-      return <Step1 values={values} />;
+      return <Step1 handleChange={this.handleChange} values={values} />;
     } else if (formStep === 1) {
-      return <Step2 values={values} />;
+      return <Step2 handleChange={this.handleChange} values={values} />;
     } else if (formStep === 2) {
-      return <Step3 values={values} />;
+      return <Step3 handleChange={this.handleChange} values={values} />;
     } else if (formStep === 3) {
-      return <Step4 values={values} />;
+      return <Step4 handleChange={this.handleChange} values={values} />;
     } else if (formStep === 4) {
       return <SummaryComponent values={values} />;
     } else if (formStep === 5) {
-      return <SuccessComponent values={values} />;
+      return <SuccessComponent handleSwitchClear={this.handleSwitchClear} />;
     }
   };
 
   render() {
-    const { steps, currentStep } = this.state;
+    const { steps, currentStep, formStep } = this.state;
     const buttonStyle = {
       background: "#E0E0E0",
       width: 200,
@@ -140,6 +159,7 @@ class MultiStepFormComponent extends Component {
       margin: "0 auto",
       marginTop: 32
     };
+    const nextSendBtn = formStep === 4 ? "Wyślij" : "Dalej";
 
     return (
       <>
@@ -151,14 +171,16 @@ class MultiStepFormComponent extends Component {
             circleLineHeight={"36"}
             size={36}
           />
-          {this.showStep()}
+        </div>
+        <section className="formContainer">
+          {this.renderStep()}
           <button style={buttonStyle} onClick={() => this.handleStep("prev")}>
             Prev
           </button>
           <button style={buttonStyle} onClick={() => this.handleStep("next")}>
-            Next
+            {nextSendBtn}
           </button>
-        </div>
+        </section>
       </>
     );
   }
