@@ -1,0 +1,26 @@
+.step-2 {
+  display: inline-block;
+  max-width: 900px;
+  margin: 5rem auto 3rem;
+  padding: 0 2.4rem;
+
+  &__inputContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    label {
+      font-size: 1.6rem;
+      margin-right: 1rem;
+      @include tablet {
+        font-size: 1.8rem;
+      }
+    }
+
+    select {
+      font-size: 1.6rem;
+      padding: 0.5rem 1rem;
+    }
+  }
+}

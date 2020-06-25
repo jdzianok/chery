@@ -45,16 +45,28 @@ class MultiStepFormComponent extends Component {
     date: "",
     hour: "",
     remarks: "",
-    step1Error: ""
+    step1Error: "",
+    step2Error: ""
   };
 
   isValidStep1 = () => {
+    const { clothes, toys, books, other } = this.state;
     this.setState({
       step1Error: ""
     });
 
-    const { clothes, toys, books, other } = this.state;
     if (clothes || toys || books || other) {
+      return true;
+    } else return false;
+  };
+
+  isValidStep2 = () => {
+    const { bags } = this.state;
+    this.setState({
+      step2Error: ""
+    });
+
+    if (bags) {
       return true;
     } else return false;
   };
@@ -66,11 +78,34 @@ class MultiStepFormComponent extends Component {
         currentStep: currentStep + 1,
         formStep: formStep + 1
       });
-    } else {
+    } else if (!this.isValidStep1()) {
       this.setState({
         step1Error: "Musisz wybrać chociaż jedną opcję"
       });
+    } else if (currentStep === 1 && this.isValidStep2()) {
+      this.setState({
+        currentStep: currentStep + 1,
+        formStep: formStep + 1
+      });
+    } else if (!this.isValidStep2()) {
+      this.setState({
+        step2Error: "Musisz wybrać chociaż jedną opcję"
+      });
     }
+  };
+
+  handlePrevStep = () => {
+    const { currentStep, formStep } = this.state;
+    if (formStep >= 4) {
+      this.setState({
+        formStep: formStep - 1
+      });
+    } else if (currentStep >= 1) {
+      this.setState({
+        currentStep: currentStep - 1,
+        formStep: formStep - 1
+      });
+    } else return;
   };
 
   handleStep = direction => {
@@ -135,7 +170,8 @@ class MultiStepFormComponent extends Component {
       date,
       hour,
       remarks,
-      step1Error
+      step1Error,
+      step2Error
     } = this.state;
     const values = {
       clothes,
@@ -157,7 +193,8 @@ class MultiStepFormComponent extends Component {
       date,
       hour,
       remarks,
-      step1Error
+      step1Error,
+      step2Error
     };
 
     if (formStep === 0) {
@@ -188,6 +225,8 @@ class MultiStepFormComponent extends Component {
             activeStep={currentStep}
             circleLineHeight={"36"}
             size={36}
+            activeColor="#0166eb"
+            completeColor="#0166eb"
           />
           <section className="formContainer">
             {this.renderStep()}
