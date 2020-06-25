@@ -44,7 +44,33 @@ class MultiStepFormComponent extends Component {
     phone: "",
     date: "",
     hour: "",
-    remarks: ""
+    remarks: "",
+    step1Error: ""
+  };
+
+  isValidStep1 = () => {
+    this.setState({
+      step1Error: ""
+    });
+
+    const { clothes, toys, books, other } = this.state;
+    if (clothes || toys || books || other) {
+      return true;
+    } else return false;
+  };
+
+  handleNextStep = () => {
+    const { currentStep, formStep } = this.state;
+    if (currentStep === 0 && this.isValidStep1()) {
+      this.setState({
+        currentStep: currentStep + 1,
+        formStep: formStep + 1
+      });
+    } else {
+      this.setState({
+        step1Error: "Musisz wybrać chociaż jedną opcję"
+      });
+    }
   };
 
   handleStep = direction => {
@@ -108,7 +134,8 @@ class MultiStepFormComponent extends Component {
       phone,
       date,
       hour,
-      remarks
+      remarks,
+      step1Error
     } = this.state;
     const values = {
       clothes,
@@ -129,7 +156,8 @@ class MultiStepFormComponent extends Component {
       phone,
       date,
       hour,
-      remarks
+      remarks,
+      step1Error
     };
 
     if (formStep === 0) {
@@ -166,13 +194,13 @@ class MultiStepFormComponent extends Component {
             <div className="formContainer__formBtnContainer">
               <button
                 className="formContainer__prevBtn"
-                onClick={() => this.handleStep("prev")}
+                onClick={this.handlePrevStep}
               >
                 Wróć
               </button>
               <button
                 className="formContainer__nextBtn"
-                onClick={() => this.handleStep("next")}
+                onClick={this.handleNextStep}
               >
                 {nextSendBtn}
               </button>

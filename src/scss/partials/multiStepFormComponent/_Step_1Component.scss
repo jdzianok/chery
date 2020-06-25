@@ -1,9 +1,8 @@
 .step-1 {
-  width: 90%;
-  height: 20rem;
+  display: inline-block;
   max-width: 500px;
   margin: 5rem auto 3rem;
-  padding: 0 1rem;
+  padding: 0 2.4rem;
 
   &__inputContainer {
     margin: 1.5rem 0;
@@ -21,6 +20,11 @@
         font-size: 2rem;
       }
     }
+  }
+
+  .stepErrorMsg {
+    font-size: 1.6rem;
+    color: red;
   }
 }
 

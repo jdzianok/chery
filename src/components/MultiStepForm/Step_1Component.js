@@ -55,6 +55,9 @@ function Step_1Component(props) {
         />
         <label htmlFor="check-4">inne</label>
       </div>
+      {values.step1Error ? (
+        <span className="stepErrorMsg">{values.step1Error}</span>
+      ) : null}
     </div>
   );
 }
