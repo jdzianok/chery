@@ -29,7 +29,7 @@ class MultiStepFormComponent extends Component {
     clothes: false,
     toys: false,
     books: false,
-    others: false,
+    other: false,
     bags: "",
     location: "",
     kids: false,
@@ -93,7 +93,7 @@ class MultiStepFormComponent extends Component {
       clothes,
       toys,
       books,
-      others,
+      other,
       bags,
       location,
       kids,
@@ -114,7 +114,7 @@ class MultiStepFormComponent extends Component {
       clothes,
       toys,
       books,
-      others,
+      other,
       bags,
       location,
       kids,
@@ -149,14 +149,6 @@ class MultiStepFormComponent extends Component {
 
   render() {
     const { steps, currentStep, formStep } = this.state;
-    const buttonStyle = {
-      background: "#E0E0E0",
-      width: 200,
-      padding: 16,
-      textAlign: "center",
-      margin: "0 auto",
-      marginTop: 32
-    };
     const nextSendBtn = formStep === 4 ? "Wyślij" : "Dalej";
 
     return (
@@ -169,16 +161,24 @@ class MultiStepFormComponent extends Component {
             circleLineHeight={"36"}
             size={36}
           />
+          <section className="formContainer">
+            {this.renderStep()}
+            <div className="formContainer__formBtnContainer">
+              <button
+                className="formContainer__prevBtn"
+                onClick={() => this.handleStep("prev")}
+              >
+                Wróć
+              </button>
+              <button
+                className="formContainer__nextBtn"
+                onClick={() => this.handleStep("next")}
+              >
+                {nextSendBtn}
+              </button>
+            </div>
+          </section>
         </div>
-        <section className="formContainer">
-          {this.renderStep()}
-          <button style={buttonStyle} onClick={() => this.handleStep("prev")}>
-            Prev
-          </button>
-          <button style={buttonStyle} onClick={() => this.handleStep("next")}>
-            {nextSendBtn}
-          </button>
-        </section>
       </>
     );
   }
