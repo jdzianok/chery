@@ -9,6 +9,7 @@ import SummaryComponent from "./SummaryComponent";
 import SuccessComponent from "./SuccessComponent";
 
 class MultiStepFormComponent extends Component {
+  startDate = new Date().toISOString().slice(0, 10);
   state = {
     steps: [
       {
@@ -24,14 +25,14 @@ class MultiStepFormComponent extends Component {
         title: "Zamów kuriera"
       }
     ],
-    currentStep: 0,
-    formStep: 0,
-    clothes: false,
+    currentStep: 3,
+    formStep: 3,
+    clothes: true,
     toys: false,
     books: false,
     other: false,
-    bags: "",
-    location: "",
+    bags: "1",
+    location: "Poznań",
     kids: false,
     mothers: false,
     homeless: false,
@@ -42,11 +43,17 @@ class MultiStepFormComponent extends Component {
     city: "",
     postCode: "",
     phone: "",
-    date: "",
+    date: this.startDate,
     hour: "",
     remarks: "",
     step1Error: "",
-    step2Error: ""
+    step2Error: "",
+    step3Error: "",
+    step4ErrorStreet: "",
+    step4ErrorCity: "",
+    step4ErrorPostCode: "",
+    step4ErrorPhone: "",
+    step4ErrorHour: ""
   };
 
   isValidStep1 = () => {
@@ -71,26 +78,98 @@ class MultiStepFormComponent extends Component {
     } else return false;
   };
 
+  isValidStep3 = () => {
+    const { location } = this.state;
+    this.setState({
+      step3Error: ""
+    });
+
+    if (location) {
+      return true;
+    } else return false;
+  };
+
+  isValidStep4 = () => {
+    const { street, city, postCode, phone, hour } = this.state;
+    this.setState({
+      step4ErrorStreet: "",
+      step4ErrorCity: "",
+      step4ErrorPostCode: "",
+      step4ErrorPhone: "",
+      step4ErrorHour: ""
+    });
+
+    let step4ErrorStreet = "";
+    let step4ErrorCity = "";
+    let step4ErrorPostCode = "";
+    let step4ErrorPhone = "";
+    let step4ErrorHour = "";
+
+    if (street.trim().length <= 3) {
+      step4ErrorStreet = "Ulica powinna zawierać co najmniej 3 znaki";
+    }
+    if (city.trim().length <= 3) {
+      step4ErrorCity = "Miasto powinno zawierać co najmniej 3 znaki";
+    }
+    if (!postCode.match(/^\d\d-\d\d\d$/)) {
+      step4ErrorPostCode = "Wpisz poprawny kod pocztowy";
+    }
+    if (phone.trim().length < 9 || phone.trim().length > 12) {
+      step4ErrorPhone = "Wpisz np. 555 555 555";
+    }
+    if (!hour) {
+      step4ErrorHour = "Podaj godzinę";
+    }
+
+    if (
+      step4ErrorStreet ||
+      step4ErrorCity ||
+      step4ErrorPostCode ||
+      step4ErrorPhone ||
+      step4ErrorHour
+    ) {
+      this.setState({
+        step4ErrorStreet,
+        step4ErrorCity,
+        step4ErrorPostCode,
+        step4ErrorPhone,
+        step4ErrorHour
+      });
+      return false;
+    }
+
+    return true;
+  };
+
+  addStep = (formStep, currentStep) => {
+    this.setState({
+      currentStep: currentStep + 1,
+      formStep: formStep + 1
+    });
+  };
+
   handleNextStep = () => {
     const { currentStep, formStep } = this.state;
     if (currentStep === 0 && this.isValidStep1()) {
-      this.setState({
-        currentStep: currentStep + 1,
-        formStep: formStep + 1
-      });
+      this.addStep(formStep, currentStep);
     } else if (!this.isValidStep1()) {
       this.setState({
         step1Error: "Musisz wybrać chociaż jedną opcję"
       });
     } else if (currentStep === 1 && this.isValidStep2()) {
-      this.setState({
-        currentStep: currentStep + 1,
-        formStep: formStep + 1
-      });
+      this.addStep(formStep, currentStep);
     } else if (!this.isValidStep2()) {
       this.setState({
         step2Error: "Musisz wybrać chociaż jedną opcję"
       });
+    } else if (currentStep === 2 && this.isValidStep3()) {
+      this.addStep(formStep, currentStep);
+    } else if (!this.isValidStep3()) {
+      this.setState({
+        step3Error: "Podaj swoją lokalizację"
+      });
+    } else if (currentStep === 3 && this.isValidStep4()) {
+      this.addStep(formStep);
     }
   };
 
@@ -171,7 +250,13 @@ class MultiStepFormComponent extends Component {
       hour,
       remarks,
       step1Error,
-      step2Error
+      step2Error,
+      step3Error,
+      step4ErrorStreet,
+      step4ErrorCity,
+      step4ErrorPostCode,
+      step4ErrorPhone,
+      step4ErrorHour
     } = this.state;
     const values = {
       clothes,
@@ -194,7 +279,13 @@ class MultiStepFormComponent extends Component {
       hour,
       remarks,
       step1Error,
-      step2Error
+      step2Error,
+      step3Error,
+      step4ErrorStreet,
+      step4ErrorCity,
+      step4ErrorPostCode,
+      step4ErrorPhone,
+      step4ErrorHour
     };
 
     if (formStep === 0) {

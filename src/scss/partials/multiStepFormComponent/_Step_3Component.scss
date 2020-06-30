@@ -1,0 +1,78 @@
+.step-3 {
+  display: inline-block;
+  max-width: 600px;
+  margin: 5rem auto 3rem;
+  padding: 0 2.4rem;
+
+  &__inputContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .holder {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-start;
+      padding-left: 1rem;
+
+      span {
+        width: 100%;
+        margin-top: 1rem;
+      }
+    }
+    label {
+      font-size: 1.6rem;
+      margin-right: 1rem;
+      @include tablet {
+        font-size: 1.8rem;
+      }
+    }
+
+    select {
+      font-size: 1.6rem;
+      padding: 0.5rem 1rem;
+    }
+  }
+
+  &__selectContainer {
+    display: flex;
+    flex-wrap: wrap;
+
+    &__whoHelp {
+      width: 100%;
+      padding-left: 1rem;
+      margin: 3rem 0 1rem;
+      font-size: 1.8rem;
+    }
+
+    &__checkbox:not(:checked),
+    &__checkbox:checked {
+      position: absolute;
+      left: -9999%;
+    }
+
+    &__checkbox + label {
+      display: inline-block;
+      padding: 1rem;
+      cursor: pointer;
+      border: 1px solid black;
+      color: black;
+      background-color: white;
+      margin: 1rem;
+    }
+
+    &__checkbox:checked + label {
+      background-color: orange;
+    }
+
+    &__organization {
+      width: 100%;
+      padding: 1rem 0.5rem;
+      font-size: 1.6rem;
+      margin-left: 1rem;
+    }
+  }
+}
