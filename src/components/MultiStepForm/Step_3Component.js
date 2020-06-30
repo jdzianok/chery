@@ -78,7 +78,21 @@ function Step_3Component(props) {
             onChange={handleChange()}
           />
           <label htmlFor="check_5">osobom starszym</label>
-          <h3 className="step-3__selectContainer__whoHelp">
+          <div className="step-3__selectContainer__option">
+            <input
+              id="organization"
+              type="text"
+              placeholder=" "
+              value={values.organization}
+              onChange={handleChange("organization")}
+            />
+            <label htmlFor="organization" className="input-label">
+              <span id="content" className="content">
+                Wpisz nazwę konkretnej organizacji (opcjonalnie)
+              </span>
+            </label>
+          </div>
+          {/* <h3 className="step-3__selectContainer__whoHelp">
             Wpisz nazwę konkretnej organizacji (opcjonalnie)
           </h3>
           <input
@@ -86,7 +100,7 @@ function Step_3Component(props) {
             className="step-3__selectContainer__organization"
             value={values.organization}
             onChange={handleChange("organization")}
-          />
+          /> */}
         </div>
       </div>
     </div>

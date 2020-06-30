@@ -2,6 +2,8 @@ import React from "react";
 
 function Step_4Component(props) {
   const { values, handleChange } = props;
+  const startDate = new Date().toISOString().slice(0, 10);
+
   return (
     <div className="step-4">
       <h2 className="step-4__header formHeader">
@@ -14,6 +16,7 @@ function Step_4Component(props) {
             id="street"
             type="text"
             placeholder=" "
+            value={values.street}
             required
             onChange={handleChange("street")}
           />
@@ -29,6 +32,7 @@ function Step_4Component(props) {
             id="city"
             type="text"
             placeholder=" "
+            value={values.city}
             required
             onChange={handleChange("city")}
           />
@@ -44,6 +48,7 @@ function Step_4Component(props) {
             id="postCode"
             type="text"
             placeholder=" "
+            value={values.postCode}
             required
             onChange={handleChange("postCode")}
           />
@@ -59,6 +64,7 @@ function Step_4Component(props) {
             id="phone"
             type="number"
             placeholder=" "
+            value={values.phone}
             required
             onChange={handleChange("phone")}
           />
@@ -78,7 +84,8 @@ function Step_4Component(props) {
             type="text"
             onFocus={e => (e.target.type = "date")}
             onBlur={e => (e.target.type = "text")}
-            min={values.date}
+            min={startDate}
+            value={values.date}
             placeholder=" "
             required
             onChange={handleChange("date")}
@@ -94,6 +101,7 @@ function Step_4Component(props) {
             onFocus={e => (e.target.type = "time")}
             onBlur={e => (e.target.type = "text")}
             placeholder=" "
+            value={values.hour}
             required
             onChange={handleChange("time")}
           />

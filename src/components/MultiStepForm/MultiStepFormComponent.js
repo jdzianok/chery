@@ -10,6 +10,7 @@ import SuccessComponent from "./SuccessComponent";
 
 class MultiStepFormComponent extends Component {
   startDate = new Date().toISOString().slice(0, 10);
+
   state = {
     steps: [
       {
@@ -25,26 +26,26 @@ class MultiStepFormComponent extends Component {
         title: "Zamów kuriera"
       }
     ],
-    currentStep: 3,
-    formStep: 3,
+    currentStep: 4,
+    formStep: 4,
     clothes: true,
-    toys: false,
-    books: false,
+    toys: true,
+    books: true,
     other: false,
     bags: "1",
-    location: "Poznań",
+    location: "Wrocław",
     kids: false,
     mothers: false,
     homeless: false,
     handicapped: false,
     elderly: false,
     organization: "",
-    street: "",
-    city: "",
-    postCode: "",
-    phone: "",
+    street: "Wolbromska 11/3",
+    city: "Wrocław",
+    postCode: "53-148",
+    phone: "506050179",
     date: this.startDate,
-    hour: "",
+    hour: "11:00",
     remarks: "",
     step1Error: "",
     step2Error: "",
@@ -112,7 +113,7 @@ class MultiStepFormComponent extends Component {
       step4ErrorCity = "Miasto powinno zawierać co najmniej 3 znaki";
     }
     if (!postCode.match(/^\d\d-\d\d\d$/)) {
-      step4ErrorPostCode = "Wpisz poprawny kod pocztowy";
+      step4ErrorPostCode = "Podaj poprawny kod pocztowy";
     }
     if (phone.trim().length < 9 || phone.trim().length > 12) {
       step4ErrorPhone = "Wpisz np. 555 555 555";
@@ -169,17 +170,15 @@ class MultiStepFormComponent extends Component {
         step3Error: "Podaj swoją lokalizację"
       });
     } else if (currentStep === 3 && this.isValidStep4()) {
-      this.addStep(formStep);
+      this.addStep(formStep, currentStep);
+    } else if (formStep < 5) {
+      this.addStep(formStep, currentStep);
     }
   };
 
   handlePrevStep = () => {
     const { currentStep, formStep } = this.state;
-    if (formStep >= 4) {
-      this.setState({
-        formStep: formStep - 1
-      });
-    } else if (currentStep >= 1) {
+    if (currentStep >= 1) {
       this.setState({
         currentStep: currentStep - 1,
         formStep: formStep - 1
