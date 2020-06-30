@@ -1,8 +1,19 @@
 .step-4 {
-  display: inline-block;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
   max-width: 700px;
   margin: 5rem auto 0;
   padding: 0 2.4rem;
+
+  &__header {
+    width: 100%;
+    margin-bottom: 5rem;
+  }
+
+  @include tablet {
+    flex-direction: row;
+  }
 
   &__addressContainer,
   &__dateContainer {
@@ -10,6 +21,10 @@
     max-width: 700px;
     margin: 0 auto;
     padding: 0 1.5rem 3rem 1.5rem;
+
+    @include tablet {
+      width: 50%;
+    }
 
     &__header {
       font-size: 1.6rem;

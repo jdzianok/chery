@@ -75,7 +75,9 @@ function Step_4Component(props) {
         <div className="step-4__dateContainer__inputContainer">
           <input
             id="date"
-            type="date"
+            type="text"
+            onFocus={e => (e.target.type = "date")}
+            onBlur={e => (e.target.type = "text")}
             min={values.date}
             placeholder=" "
             required
@@ -88,7 +90,9 @@ function Step_4Component(props) {
         <div className="step-4__dateContainer__inputContainer">
           <input
             id="time"
-            type="time"
+            type="text"
+            onFocus={e => (e.target.type = "time")}
+            onBlur={e => (e.target.type = "text")}
             placeholder=" "
             required
             onChange={handleChange("time")}
@@ -101,9 +105,6 @@ function Step_4Component(props) {
           <span className="stepErrorMsg">{values.step4ErrorHour}</span>
         ) : null}
       </div>
-      {/* {values.step4ErrorStreet ? (
-        <span className="stepErrorMsg">{values.step4ErrorStreet}</span>
-      ) : null} */}
     </div>
   );
 }
