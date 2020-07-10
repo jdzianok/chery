@@ -14,20 +14,20 @@ class MultiStepFormComponent extends Component {
   state = {
     steps: [
       {
-        title: "Wybierz rzeczy"
+        title: "Rzeczy"
       },
       {
-        title: "Spakuj je w worki"
+        title: "Ilość"
       },
       {
-        title: "Wybierz fundację"
+        title: "Cel"
       },
       {
-        title: "Zamów kuriera"
+        title: "Kurier"
       }
     ],
-    currentStep: 4,
-    formStep: 4,
+    currentStep: 0,
+    formStep: 0,
     clothes: true,
     toys: true,
     books: true,
@@ -305,6 +305,22 @@ class MultiStepFormComponent extends Component {
   render() {
     const { steps, currentStep, formStep } = this.state;
     const nextSendBtn = formStep === 4 ? "Wyślij" : "Dalej";
+    const prevButton =
+      formStep === 0 ? (
+        <button
+          className="formContainer__prevBtn formContainer__prevBtn--disabled"
+          onClick={this.handlePrevStep}
+        >
+          Wróć
+        </button>
+      ) : (
+        <button
+          className="formContainer__prevBtn"
+          onClick={this.handlePrevStep}
+        >
+          Wróć
+        </button>
+      );
 
     return (
       <>
@@ -317,16 +333,12 @@ class MultiStepFormComponent extends Component {
             size={36}
             activeColor="#0166eb"
             completeColor="#0166eb"
+            completeBarColor="#948c8c"
           />
           <section className="formContainer">
             {this.renderStep()}
             <div className="formContainer__formBtnContainer">
-              <button
-                className="formContainer__prevBtn"
-                onClick={this.handlePrevStep}
-              >
-                Wróć
-              </button>
+              {prevButton}
               <button
                 className="formContainer__nextBtn"
                 onClick={this.handleNextStep}

@@ -39,34 +39,34 @@ function SummaryComponent(props) {
   } = values;
   const pushItems = (clothes, toys, books, other) => {
     if (clothes) {
-      items.push("ubrania");
+      items.push("Ubrania");
     }
     if (toys) {
-      items.push("zabawki");
+      items.push("Zabawki");
     }
     if (books) {
-      items.push("książki");
+      items.push("Książki");
     }
     if (other) {
-      items.push("inne");
+      items.push("Inne");
     }
     return items;
   };
   const pushReceivers = (kids, mothers, homeless, handicapped, elderly) => {
     if (kids) {
-      receivers.push("dzieciom");
+      receivers.push("Dzieciom");
     }
     if (mothers) {
-      receivers.push("samotnym matkom");
+      receivers.push("Samotnym matkom");
     }
     if (homeless) {
-      receivers.push("bezdomnym");
+      receivers.push("Bezdomnym");
     }
     if (handicapped) {
-      receivers.push("niepełnosprawnym");
+      receivers.push("Niepełnosprawnym");
     }
     if (elderly) {
-      receivers.push("osobom starszym");
+      receivers.push("Osobom starszym");
     }
     return receivers;
   };
@@ -98,42 +98,52 @@ function SummaryComponent(props) {
       <div className="wrap-up__container">
         <div className="wrap-up__box">
           <img src={bags_logo} alt="" className="wrap-up__icon" />
-          <h3 className="wrap-up__title">Ile?</h3>
-          <p className="wrap-up__info">
-            {values.bags}
-            {values.bags === "1"
-              ? " worek"
-              : values.bags === "5"
-              ? " worków"
-              : " worki"}
-          </p>
+          <div className="wrap-up__boxContent">
+            <h3 className="wrap-up__title">Ile worków?</h3>
+            <p className="wrap-up__info">
+              {values.bags}
+              {values.bags === "1"
+                ? " worek"
+                : values.bags === "5"
+                ? " worków"
+                : " worki"}
+            </p>
+          </div>
         </div>
         <div className="wrap-up__box">
           <img src={items_logo} alt="" className="wrap-up__icon" />
-          <h3 className="wrap-up__title">Co?</h3>
-          {itemsParagraf}
+          <div className="wrap-up__boxContent">
+            <h3 className="wrap-up__title">Co oddajesz?</h3>
+            {itemsParagraf}
+          </div>
         </div>
         <div className="wrap-up__box">
           <img src={receivers_logo} alt="" className="wrap-up__icon" />
-          <h3 className="wrap-up__title">Komu?</h3>
-          {receiversParagraf}
+          <div className="wrap-up__boxContent">
+            <h3 className="wrap-up__title">Dla kogo?</h3>
+            {receiversParagraf}
+          </div>
         </div>
         {organization ? (
           <div className="wrap-up__box">
             <img src={organizations_logo} alt="" className="wrap-up__icon" />
-            <h3 className="wrap-up__title">Organizacja:</h3>
-            <p className="wrap-up__info">{organization}</p>
+            <div className="wrap-up__boxContent">
+              <h3 className="wrap-up__title">Organizacja:</h3>
+              <p className="wrap-up__info">{organization}</p>
+            </div>
           </div>
         ) : null}
         <div className="wrap-up__box">
           <img src={address_logo} alt="" className="wrap-up__icon" />
-          <h3 className="wrap-up__title">Adres odbioru:</h3>
-          <p className="wrap-up__info">Ulica: {values.street}</p>
-          <p className="wrap-up__info">Miasto: {values.city}</p>
-          <p className="wrap-up__info">Kod pocztowy: {values.postCode}</p>
-          <p className="wrap-up__info">Telefon: {values.phone}</p>
-          <p className="wrap-up__info">Data: {changeDateFormat(values.date)}</p>
-          <p className="wrap-up__info">Godzina: {values.hour}</p>
+          <div className="wrap-up__boxContent">
+            <h3 className="wrap-up__title">Adres odbioru:</h3>
+            <p className="wrap-up__info">{values.street}</p>
+            <p className="wrap-up__info">{values.city}</p>
+            <p className="wrap-up__info">{values.postCode}</p>
+            <p className="wrap-up__info">{values.phone}</p>
+            <p className="wrap-up__info">{changeDateFormat(values.date)}</p>
+            <p className="wrap-up__info">{values.hour}</p>
+          </div>
         </div>
       </div>
     </div>

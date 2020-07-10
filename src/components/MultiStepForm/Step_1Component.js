@@ -15,9 +15,7 @@ function Step_1Component(props) {
           checked={values.clothes}
           onChange={handleChange()}
         />
-        <label htmlFor="check-1">
-          ubrania, które nadają się do ponownego użycia
-        </label>
+        <label htmlFor="check-1">ubrania w dobrym stanie</label>
       </div>
       <div className="step-1__inputContainer">
         <input

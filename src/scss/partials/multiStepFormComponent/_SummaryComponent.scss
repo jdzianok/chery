@@ -1,37 +1,77 @@
 .wrap-up {
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
   max-width: 700px;
-  margin: 5rem auto 0;
-  padding: 0 2.4rem;
+  margin: 5rem auto 8rem;
+  padding: 0 1.4rem;
+
+  @include tablet {
+    margin-bottom: 0;
+  }
 
   &__container {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
+    margin: 0 auto;
+    justify-content: center;
     align-items: center;
-    // justify-content: center;
+    max-width: 35rem;
+
+    @include tablet {
+      max-width: 700px;
+      justify-content: space-evenly;
+      margin: 2rem 0;
+    }
   }
 
   &__box {
-    margin: 1rem 0;
-    // border: 1px solid #000;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 2rem 0;
+
+    @include tablet {
+      width: 45%;
+      height: 20rem;
+      align-items: flex-start;
+      margin: 1rem 0 0;
+    }
+  }
+
+  @include tablet {
+    &__box:nth-child(5) {
+      margin-top: 4rem;
+      flex-basis: 95%;
+    }
+  }
+
+  &__boxContent {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
   }
 
   &__icon {
     display: block;
-    margin: 0 auto 3.5rem;
+    width: 8rem;
+    margin: 2rem;
+
+    @include tablet {
+      width: 80px;
+      margin-top: 0;
+    }
   }
 
   &__title {
-    font-size: 2.6rem;
+    font-size: 2.2rem;
     text-align: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
   }
 
   &__info {
-    font-size: 2rem;
-    line-height: 1.3;
+    font-size: 1.6rem;
+    line-height: 1.8;
   }
 }

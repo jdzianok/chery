@@ -24,6 +24,7 @@ class ContactComponent extends Component {
   };
 
   handleEmailValidation = () => {
+    // eslint-disable-next-line
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const emailValidation = re.test(String(this.state.email).toLowerCase());
     this.setState({ emailError: !emailValidation });
