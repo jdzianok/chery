@@ -53,6 +53,11 @@
       top: 0;
       background-color: transparent;
       height: auto;
+      margin-right: 11%;
+    }
+
+    @include desktop {
+      margin-right: 13rem;
     }
 
     &__list {

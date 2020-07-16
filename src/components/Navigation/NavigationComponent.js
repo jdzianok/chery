@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link as ScrollLink } from "react-scroll";
+import { Link as ScrollLink, scroller } from "react-scroll";
 import { Link, withRouter } from "react-router-dom";
 import logo from "../../assets/logo.svg";
 const firebase = require("firebase");
@@ -15,11 +15,32 @@ const options = {
 class NavigationComponent extends Component {
   state = {
     openMenu: false,
-    scroll: false
+    scroll: false,
+    sectionToScroll: ""
   };
+
+  scrollToSection(destination) {
+    this.props.history.push({ pathname: "/" });
+    this.setState({ sectionToScroll: destination });
+  }
 
   componentDidMount() {
     window.addEventListener("scroll", this.handleScroll);
+  }
+
+  componentDidUpdate() {
+    if (this.state.sectionToScroll.length > 1) {
+      scroller.scrollTo(this.state.sectionToScroll, {
+        duration: 500,
+        smooth: true,
+        spy: true,
+        offset: -20
+      });
+    }
+  }
+
+  componentDidUpdate() {
+    console.log(this.state);
   }
 
   componentWillUnmount() {
@@ -88,7 +109,9 @@ class NavigationComponent extends Component {
           <ul className="navigation__list">
             <li className="navigation__item">
               {this.props.history.location.pathname !== "/" ? (
-                <p>O co chodzi?</p>
+                <p onClick={() => this.scrollToSection("steps")}>
+                  O co chodzi?
+                </p>
               ) : (
                 <ScrollLink
                   onClick={this.handleOpenMenu}
@@ -101,7 +124,7 @@ class NavigationComponent extends Component {
             </li>
             <li className="navigation__item">
               {this.props.history.location.pathname !== "/" ? (
-                <p>O nas</p>
+                <p onClick={() => this.scrollToSection("aboutUs")}>O nas</p>
               ) : (
                 <ScrollLink
                   onClick={this.handleOpenMenu}
@@ -114,7 +137,9 @@ class NavigationComponent extends Component {
             </li>
             <li className="navigation__item">
               {this.props.history.location.pathname !== "/" ? (
-                <p>Fundacje i organizacje</p>
+                <p onClick={() => this.scrollToSection("whoWeHelp")}>
+                  Fundacje i organizacje
+                </p>
               ) : (
                 <ScrollLink
                   onClick={this.handleOpenMenu}
@@ -127,7 +152,7 @@ class NavigationComponent extends Component {
             </li>
             <li className="navigation__item">
               {this.props.history.location.pathname !== "/" ? (
-                <p>Kontakt</p>
+                <p onClick={() => this.scrollToSection("contact")}>Kontakt</p>
               ) : (
                 <ScrollLink
                   onClick={this.handleOpenMenu}
@@ -139,7 +164,7 @@ class NavigationComponent extends Component {
               )}
             </li>
           </ul>
-          <div className="navigation__login">
+          {/* <div className="navigation__login">
             {isLogged ? (
               <p className="user">
                 {this.capitalizeFirstLetter(isLogged.split("@")[0])}
@@ -162,7 +187,7 @@ class NavigationComponent extends Component {
                 </Link>
               )}
             </button>
-          </div>
+          </div> */}
         </nav>
       </div>
     );

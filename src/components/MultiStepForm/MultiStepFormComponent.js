@@ -7,55 +7,57 @@ import Step3 from "./Step_3Component";
 import Step4 from "./Step_4Component";
 import SummaryComponent from "./SummaryComponent";
 import SuccessComponent from "./SuccessComponent";
+import { withRouter } from "react-router-dom";
+
+const startDate = new Date().toISOString().slice(0, 10);
+const initialState = {
+  steps: [
+    {
+      title: "Rzeczy"
+    },
+    {
+      title: "Ilość"
+    },
+    {
+      title: "Cel"
+    },
+    {
+      title: "Kurier"
+    }
+  ],
+  currentStep: 0,
+  formStep: 0,
+  clothes: true,
+  toys: true,
+  books: true,
+  other: true,
+  bags: "5",
+  location: "Wrocław",
+  kids: true,
+  mothers: true,
+  homeless: true,
+  handicapped: true,
+  elderly: true,
+  organization: "",
+  street: "Wolbromska 11/3",
+  city: "Wrocław",
+  postCode: "53-148",
+  phone: "506050179",
+  date: startDate,
+  hour: "11:00",
+  remarks: "",
+  step1Error: "",
+  step2Error: "",
+  step3Error: "",
+  step4ErrorStreet: "",
+  step4ErrorCity: "",
+  step4ErrorPostCode: "",
+  step4ErrorPhone: "",
+  step4ErrorHour: ""
+};
 
 class MultiStepFormComponent extends Component {
-  startDate = new Date().toISOString().slice(0, 10);
-
-  state = {
-    steps: [
-      {
-        title: "Rzeczy"
-      },
-      {
-        title: "Ilość"
-      },
-      {
-        title: "Cel"
-      },
-      {
-        title: "Kurier"
-      }
-    ],
-    currentStep: 0,
-    formStep: 0,
-    clothes: true,
-    toys: true,
-    books: true,
-    other: true,
-    bags: "5",
-    location: "Wrocław",
-    kids: true,
-    mothers: true,
-    homeless: true,
-    handicapped: true,
-    elderly: true,
-    organization: "Czerwony Krzyż",
-    street: "Wolbromska 11/3",
-    city: "Wrocław",
-    postCode: "53-148",
-    phone: "506050179",
-    date: this.startDate,
-    hour: "11:00",
-    remarks: "",
-    step1Error: "",
-    step2Error: "",
-    step3Error: "",
-    step4ErrorStreet: "",
-    step4ErrorCity: "",
-    step4ErrorPostCode: "",
-    step4ErrorPhone: "",
-    step4ErrorHour: ""
-  };
+  state = initialState;
 
   isValidStep1 = () => {
     const { clothes, toys, books, other } = this.state;
@@ -222,8 +224,17 @@ class MultiStepFormComponent extends Component {
     });
   };
 
-  handleSwitchClear = () => {
-    console.log("dziala");
+  handleSend = () => {
+    const { formStep } = this.state;
+
+    this.setState({
+      formStep: formStep + 1
+    });
+
+    setTimeout(() => {
+      this.setState(initialState);
+      this.props.history.push("/");
+    }, 5000);
   };
 
   renderStep = () => {
@@ -298,13 +309,25 @@ class MultiStepFormComponent extends Component {
     } else if (formStep === 4) {
       return <SummaryComponent values={values} />;
     } else if (formStep === 5) {
-      return <SuccessComponent handleSwitchClear={this.handleSwitchClear} />;
+      return <SuccessComponent />;
     }
   };
 
   render() {
     const { steps, currentStep, formStep } = this.state;
-    const nextSendBtn = formStep === 4 ? "Wyślij" : "Dalej";
+    const nextSendBtn =
+      formStep === 4 ? (
+        <button className="formContainer__nextBtn" onClick={this.handleSend}>
+          Wyślij
+        </button>
+      ) : (
+        <button
+          className="formContainer__nextBtn"
+          onClick={this.handleNextStep}
+        >
+          Dalej
+        </button>
+      );
     const prevButton =
       formStep === 0 ? (
         <button
@@ -322,30 +345,35 @@ class MultiStepFormComponent extends Component {
         </button>
       );
 
+    const renderButtons =
+      this.state.formStep < 5 ? (
+        <div className="formContainer__formBtnContainer">
+          {prevButton}
+          {nextSendBtn}
+        </div>
+      ) : null;
+
+    const renderStepper =
+      this.state.formStep < 5 ? (
+        <Stepper
+          steps={steps}
+          activeStep={currentStep}
+          circleLineHeight={"36"}
+          size={36}
+          activeColor="#0166eb"
+          completeColor="#0166eb"
+          completeBarColor="#948c8c"
+        />
+      ) : null;
+
     return (
       <>
         <NavigationComponent isLogged={this.props.isLogged} />
         <div className="stepper">
-          <Stepper
-            steps={steps}
-            activeStep={currentStep}
-            circleLineHeight={"36"}
-            size={36}
-            activeColor="#0166eb"
-            completeColor="#0166eb"
-            completeBarColor="#948c8c"
-          />
+          {renderStepper}
           <section className="formContainer">
             {this.renderStep()}
-            <div className="formContainer__formBtnContainer">
-              {prevButton}
-              <button
-                className="formContainer__nextBtn"
-                onClick={this.handleNextStep}
-              >
-                {nextSendBtn}
-              </button>
-            </div>
+            {renderButtons}
           </section>
         </div>
       </>
@@ -353,4 +381,4 @@ class MultiStepFormComponent extends Component {
   }
 }
 
-export default MultiStepFormComponent;
+export default withRouter(MultiStepFormComponent);
