@@ -16,10 +16,10 @@ class HomeComponent extends Component {
   render() {
     return (
       <div id="start">
-        <NavigationComponent isLogged={this.props.isLogged} />
-        <HeaderComponent isLogged={this.props.isLogged}/>
+        {/* <NavigationComponent isLogged={this.props.isLogged} /> */}
+        <HeaderComponent isLogged={this.props.isLogged} />
         <ThreeColumnsComponent />
-        <SimpleStepsComponent isLogged={this.props.isLogged}/>
+        <SimpleStepsComponent isLogged={this.props.isLogged} />
         <AboutUsComponent />
         <PaginationComponent />
         <ContactComponent />

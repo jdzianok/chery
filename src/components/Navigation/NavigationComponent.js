@@ -20,28 +20,35 @@ class NavigationComponent extends Component {
   };
 
   scrollToSection(destination) {
+    // console.log("push");
     this.props.history.push({ pathname: "/" });
-    this.setState({ sectionToScroll: destination });
+    // this.setState({ sectionToScroll: destination });
+    scroller.scrollTo(destination, {
+      duration: 500,
+      smooth: true,
+      spy: true,
+      offset: -20
+    });
   }
 
   componentDidMount() {
     window.addEventListener("scroll", this.handleScroll);
   }
 
-  componentDidUpdate() {
-    if (this.state.sectionToScroll.length > 1) {
-      scroller.scrollTo(this.state.sectionToScroll, {
-        duration: 500,
-        smooth: true,
-        spy: true,
-        offset: -20
-      });
-    }
-  }
+  // componentDidUpdate() {
+  //   if (this.state.sectionToScroll.length > 1) {
+  //     scroller.scrollTo(this.state.sectionToScroll, {
+  //       duration: 500,
+  //       smooth: true,
+  //       spy: true,
+  //       offset: -20
+  //     });
+  //   }
+  // }
 
-  componentDidUpdate() {
-    console.log(this.state);
-  }
+  // componentDidUpdate() {
+  //   console.log(this.state);
+  // }
 
   componentWillUnmount() {
     window.removeEventListener("scroll", this.handleScroll);
@@ -76,17 +83,22 @@ class NavigationComponent extends Component {
   render() {
     const { openMenu, scroll } = this.state;
     const { isLogged } = this.props;
+    const logoImg = (
+      <img
+        src={logo}
+        alt="logo"
+        className="menu__image"
+        onClick={this.handleScrollToTop}
+      />
+    );
     return (
       <div className={`menu${scroll ? " menu--scroll" : ""}`}>
         <div className="menu__logo">
-          <Link to="/">
-            <img
-              src={logo}
-              alt="logo"
-              className="menu__image"
-              onClick={this.handleScrollToTop}
-            />
-          </Link>
+          {this.props.history.location.pathname === "/" ? (
+            logoImg
+          ) : (
+            <Link to="/">{logoImg}</Link>
+          )}
         </div>
         <div className="menu__hamburger" onClick={this.handleOpenMenu}>
           <div

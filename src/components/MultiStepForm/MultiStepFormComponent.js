@@ -368,7 +368,7 @@ class MultiStepFormComponent extends Component {
 
     return (
       <>
-        <NavigationComponent isLogged={this.props.isLogged} />
+        {/* <NavigationComponent isLogged={this.props.isLogged} /> */}
         <div className="stepper">
           {renderStepper}
           <section className="formContainer">
