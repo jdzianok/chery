@@ -22,33 +22,23 @@ class NavigationComponent extends Component {
   scrollToSection(destination) {
     // console.log("push");
     this.props.history.push({ pathname: "/" });
-    // this.setState({ sectionToScroll: destination });
-    scroller.scrollTo(destination, {
-      duration: 500,
-      smooth: true,
-      spy: true,
-      offset: -20
-    });
+    this.setState({ sectionToScroll: destination });
   }
 
   componentDidMount() {
     window.addEventListener("scroll", this.handleScroll);
   }
 
-  // componentDidUpdate() {
-  //   if (this.state.sectionToScroll.length > 1) {
-  //     scroller.scrollTo(this.state.sectionToScroll, {
-  //       duration: 500,
-  //       smooth: true,
-  //       spy: true,
-  //       offset: -20
-  //     });
-  //   }
-  // }
-
-  // componentDidUpdate() {
-  //   console.log(this.state);
-  // }
+  componentDidUpdate() {
+    if (this.state.sectionToScroll.length > 1) {
+      scroller.scrollTo(this.state.sectionToScroll, {
+        duration: 500,
+        smooth: true,
+        spy: true,
+        offset: -20
+      });
+    }
+  }
 
   componentWillUnmount() {
     window.removeEventListener("scroll", this.handleScroll);
