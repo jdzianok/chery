@@ -43,7 +43,7 @@ const initialState = {
   postCode: "",
   phone: "",
   date: startDate,
-  hour: "11:00",
+  hour: "",
   remarks: "",
   step1Error: "",
   step2Error: "",
@@ -182,33 +182,6 @@ class MultiStepFormComponent extends Component {
   handlePrevStep = () => {
     const { currentStep, formStep } = this.state;
     if (currentStep >= 1) {
-      this.setState({
-        currentStep: currentStep - 1,
-        formStep: formStep - 1
-      });
-    } else return;
-  };
-
-  handleStep = direction => {
-    const { currentStep, formStep } = this.state;
-    if (direction === "next" && formStep === 4) {
-      this.setState({
-        formStep: formStep + 1
-      });
-    } else if (direction === "next" && currentStep <= 2) {
-      this.setState({
-        currentStep: currentStep + 1,
-        formStep: formStep + 1
-      });
-    } else if (direction === "next" && formStep < 5) {
-      this.setState({
-        formStep: formStep + 1
-      });
-    } else if (direction === "prev" && formStep >= 4) {
-      this.setState({
-        formStep: formStep - 1
-      });
-    } else if (direction === "prev" && currentStep >= 1) {
       this.setState({
         currentStep: currentStep - 1,
         formStep: formStep - 1

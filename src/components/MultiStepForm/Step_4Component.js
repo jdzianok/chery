@@ -97,14 +97,13 @@ function Step_4Component(props) {
         <div className="step-4__dateContainer__inputContainer">
           <input
             id="time"
-            // type="time"
             type="text"
             onFocus={e => (e.target.type = "time")}
             onBlur={e => (e.target.type = "text")}
             placeholder=" "
             value={values.hour}
             required
-            onChange={handleChange("time")}
+            onChange={handleChange("hour")}
           />
           <label htmlFor="time" className="input-label">
             <span className="content">Godzina</span>

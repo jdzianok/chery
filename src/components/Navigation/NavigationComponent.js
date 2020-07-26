@@ -91,10 +91,13 @@ class NavigationComponent extends Component {
                   to="/#steps"
                   scroll={el =>
                     el.scrollIntoView({
-                      behavior: "instant",
-                      block: "center"
+                      // behavior: "instant",
+                      // block: "center"
+                      block: "center",
+                      inline: "nearest"
                     })
                   }
+                  onClick={this.handleOpenMenu}
                 >
                   O co chodzi?
                 </LinkHash>
@@ -114,8 +117,10 @@ class NavigationComponent extends Component {
                   to="/#aboutUs"
                   scroll={el =>
                     el.scrollIntoView({
-                      behavior: "instant",
-                      block: "center"
+                      // behavior: "instant",
+                      // block: "center"
+                      block: "center",
+                      inline: "nearest"
                     })
                   }
                 >
@@ -137,8 +142,10 @@ class NavigationComponent extends Component {
                   to="/#whoWeHelp"
                   scroll={el =>
                     el.scrollIntoView({
-                      behavior: "instant",
-                      block: "start"
+                      // behavior: "instant",
+                      // block: "start"
+                      block: "center",
+                      inline: "nearest"
                     })
                   }
                 >
@@ -158,11 +165,19 @@ class NavigationComponent extends Component {
               {this.props.history.location.pathname !== "/" ? (
                 <LinkHash
                   to="/#contact"
-                  scroll={() => {
-                    const scrollingElement =
-                      document.scrollingElement || document.body;
-                    scrollingElement.scrollTop = scrollingElement.scrollHeight;
-                  }}
+                  scroll={el =>
+                    el.scrollIntoView({
+                      // behavior: "instant",
+                      // block: "start"
+                      block: "center",
+                      inline: "nearest"
+                    })
+                  }
+                  // scroll={() => {
+                  //   const scrollingElement =
+                  //     document.scrollingElement || document.body;
+                  //   scrollingElement.scrollTop = scrollingElement.scrollHeight;
+                  // }}
                 >
                   Kontakt
                 </LinkHash>
