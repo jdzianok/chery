@@ -43,7 +43,6 @@ class ContactComponent extends Component {
       message
     };
     const url = "https://fer-api.coderslab.pl/v1/portfolio/contact";
-    // console.log(contactObj, this.state);
     return fetch(url, {
       method: "POST",
       headers: {
@@ -80,7 +79,7 @@ class ContactComponent extends Component {
   };
   render() {
     return (
-      <section className="contact">
+      <section className="contact" id="contact">
         <div className="contact__backgroundImage">
           <img src={contact_bg} className="contact__image" alt="phone" />
         </div>
@@ -105,7 +104,7 @@ class ContactComponent extends Component {
                 onBlur={() => this.handleNameValidation()}
               />
               <label htmlFor="name" className="input-label">
-                <span className="content">Imię*</span>
+                <span className="content">Imię</span>
               </label>
               {this.state.nameError && (
                 <p className="errorMessage" style={{ color: "red" }}>
@@ -123,7 +122,7 @@ class ContactComponent extends Component {
                 onBlur={() => this.handleEmailValidation()}
               />
               <label htmlFor="email" className="input-label">
-                <span className="content">E-mail*</span>
+                <span className="content">E-mail</span>
               </label>
               {this.state.emailError && (
                 <p className="errorMessage" style={{ color: "red" }}>
@@ -135,14 +134,13 @@ class ContactComponent extends Component {
           <div className="form__messageContainer">
             <textarea
               name="message"
-              // rows="3"
               value={this.state.message}
               onChange={this.handleChange}
               required
               onBlur={() => this.handleMessageValidation()}
             ></textarea>
             <label className="input-label">
-              <span className="content">Wiadomość*</span>
+              <span className="content">Wiadomość</span>
             </label>
             {this.state.messageError && (
               <p className="errorMessage" style={{ color: "red" }}>

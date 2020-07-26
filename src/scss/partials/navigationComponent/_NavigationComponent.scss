@@ -92,6 +92,10 @@
         font-size: 1.6rem;
         padding: 0 1rem;
       }
+
+      a {
+        color: $color-text;
+      }
     }
 
     &__item::after {
@@ -259,7 +263,7 @@
 }
 
 .menu--scroll {
-  box-shadow: 60px 40px 80px 0 rgba(47, 51, 59, 0.1);
+  box-shadow: 0px 16px 28px -4px rgba(79, 79, 79, 0.15);
   border-bottom: 1px solid transparent;
   transition: all 0.3s ease-in-out 0s;
 }

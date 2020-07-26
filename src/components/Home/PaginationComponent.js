@@ -50,7 +50,7 @@ class PaginationComponent extends Component {
     const { data, currentPage, itemsPerPage, category } = this.state;
 
     if (data == null) {
-      return <div>Loading...</div>;
+      return <div className="loader">Loading...</div>;
     } else {
       const dataDesc = data.map(item => {
         return item.desc;
@@ -110,7 +110,7 @@ class PaginationComponent extends Component {
       });
 
       return (
-        <section className="whoWeHelp" id="organizations">
+        <section className="whoWeHelp" id="whoWeHelp">
           <div className="head">
             <h2 className="head__title">Komu pomagamy?</h2>
             <p className="head__description">{dataDesc[category]}</p>

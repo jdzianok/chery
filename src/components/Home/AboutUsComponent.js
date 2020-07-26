@@ -4,7 +4,7 @@ import groupPhoto from "../../assets/groupPhoto.png";
 
 const AboutUsComponent = () => {
   return (
-    <section className="aboutUs">
+    <section className="aboutUs" id="aboutUs">
       <div className="aboutUs__note">
         <h3 className="aboutUs__title">O nas</h3>
         <p className="aboutUs__info">

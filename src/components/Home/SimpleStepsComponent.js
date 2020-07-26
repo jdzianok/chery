@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import { Element } from "react-scroll";
 import step_1 from "../../assets/1_step.svg";
 import step_2 from "../../assets/2_step.svg";
 import step_3 from "../../assets/3_step.svg";
@@ -9,7 +8,7 @@ import arrow_right from "../../assets/arrow_right_big.svg";
 
 const SimpleStepsComponent = () => {
   return (
-    <main className="steps" name="steps">
+    <main className="steps" name="steps" id="steps">
       <h2 className="steps__header">Wystarczą 4 proste kroki</h2>
       <div className="steps__container">
         <div className="steps__box">
@@ -33,7 +32,7 @@ const SimpleStepsComponent = () => {
           <p className="steps__subtitle">Wybierz dogodny termin</p>
         </div>
         <button className="steps__btn">
-          <Link to="/signIn" className="stepsLink">
+          <Link to="/stepForm" className="stepsLink">
             <p>Oddaj rzeczy</p>
             <img src={arrow_right} alt="" />
           </Link>

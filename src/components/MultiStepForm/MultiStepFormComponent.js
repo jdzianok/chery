@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import NavigationComponent from "../Navigation/NavigationComponent";
 import Stepper from "react-stepper-horizontal";
 import Step1 from "./Step_1Component";
 import Step2 from "./Step_2Component";
@@ -25,24 +24,24 @@ const initialState = {
       title: "Kurier"
     }
   ],
-  currentStep: 0,
-  formStep: 0,
-  clothes: true,
-  toys: true,
-  books: true,
-  other: true,
-  bags: "5",
-  location: "Wrocław",
-  kids: true,
-  mothers: true,
-  homeless: true,
-  handicapped: true,
-  elderly: true,
+  currentStep: 3,
+  formStep: 3,
+  clothes: false,
+  toys: false,
+  books: false,
+  other: false,
+  bags: "",
+  location: "",
+  kids: false,
+  mothers: false,
+  homeless: false,
+  handicapped: false,
+  elderly: false,
   organization: "",
-  street: "Wolbromska 11/3",
-  city: "Wrocław",
-  postCode: "53-148",
-  phone: "506050179",
+  street: "",
+  city: "",
+  postCode: "",
+  phone: "",
   date: startDate,
   hour: "11:00",
   remarks: "",
@@ -173,6 +172,8 @@ class MultiStepFormComponent extends Component {
       });
     } else if (currentStep === 3 && this.isValidStep4()) {
       this.addStep(formStep, currentStep);
+    } else if (!this.isValidStep4()) {
+      return;
     } else if (formStep < 5) {
       this.addStep(formStep, currentStep);
     }
@@ -368,7 +369,6 @@ class MultiStepFormComponent extends Component {
 
     return (
       <>
-        {/* <NavigationComponent isLogged={this.props.isLogged} /> */}
         <div className="stepper">
           {renderStepper}
           <section className="formContainer">

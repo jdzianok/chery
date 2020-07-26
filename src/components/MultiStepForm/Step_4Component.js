@@ -21,7 +21,7 @@ function Step_4Component(props) {
             onChange={handleChange("street")}
           />
           <label htmlFor="street" className="input-label">
-            <span className="content">Ulica*</span>
+            <span className="content">Ulica</span>
           </label>
         </div>
         {values.step4ErrorStreet ? (
@@ -37,7 +37,7 @@ function Step_4Component(props) {
             onChange={handleChange("city")}
           />
           <label htmlFor="city" className="input-label">
-            <span className="content">Miasto*</span>
+            <span className="content">Miasto</span>
           </label>
         </div>
         {values.step4ErrorCity ? (
@@ -53,7 +53,7 @@ function Step_4Component(props) {
             onChange={handleChange("postCode")}
           />
           <label htmlFor="postCode" className="input-label">
-            <span className="content">Kod pocztowy*</span>
+            <span className="content">Kod pocztowy</span>
           </label>
         </div>
         {values.step4ErrorPostCode ? (
@@ -69,7 +69,7 @@ function Step_4Component(props) {
             onChange={handleChange("phone")}
           />
           <label htmlFor="phone" className="input-label">
-            <span className="content">Telefon*</span>
+            <span className="content">Telefon</span>
           </label>
         </div>
         {values.step4ErrorPhone ? (
@@ -91,12 +91,13 @@ function Step_4Component(props) {
             onChange={handleChange("date")}
           />
           <label htmlFor="date" className="input-label">
-            <span className="content">Data*</span>
+            <span className="content">Data</span>
           </label>
         </div>
         <div className="step-4__dateContainer__inputContainer">
           <input
             id="time"
+            // type="time"
             type="text"
             onFocus={e => (e.target.type = "time")}
             onBlur={e => (e.target.type = "text")}
@@ -106,7 +107,7 @@ function Step_4Component(props) {
             onChange={handleChange("time")}
           />
           <label htmlFor="time" className="input-label">
-            <span className="content">Godzina*</span>
+            <span className="content">Godzina</span>
           </label>
         </div>
         {values.step4ErrorHour ? (

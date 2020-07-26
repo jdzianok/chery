@@ -67,18 +67,14 @@
 
   &__buttonContainer {
     display: flex;
-    flex-direction: column;
     flex-basis: 100%;
     margin: 0 6% 2rem;
 
     @include tablet {
       position: absolute;
-      top: 70%;
+      top: 65%;
       left: 50%;
       transform: translate(-50%, -50%);
-      flex-direction: row;
-      justify-content: space-between;
-      width: 53rem;
       margin: 0;
     }
   }
@@ -86,17 +82,11 @@
   &__btn {
     display: block;
     border: 1px solid $color-border-btn;
+    border-radius: 5rem;
     background-color: $color-white;
     flex-basis: 100%;
-    width: 100%;
     max-width: 350px;
     margin: 0.7rem auto;
-
-    @include tablet {
-      width: auto;
-      flex-basis: auto;
-      margin: 0;
-    }
 
     .link {
       display: flex;
@@ -109,12 +99,17 @@
 
       @include tablet {
         font-size: 2.2rem;
+        padding-left: 2.5rem;
       }
 
       p {
         display: inline-block;
         padding-right: 1rem;
         transition: all 0.2s ease-in-out;
+
+        @include tablet {
+          padding-right: 2rem;
+        }
       }
     }
   }

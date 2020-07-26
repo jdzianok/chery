@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { Link as ScrollLink, scroller } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
 import { Link, withRouter } from "react-router-dom";
+import { HashLink as LinkHash } from "react-router-hash-link";
 import logo from "../../assets/logo.svg";
-const firebase = require("firebase");
 
 const options = {
   activeClass: "active",
@@ -15,29 +15,11 @@ const options = {
 class NavigationComponent extends Component {
   state = {
     openMenu: false,
-    scroll: false,
-    sectionToScroll: ""
+    scroll: false
   };
-
-  scrollToSection(destination) {
-    // console.log("push");
-    this.props.history.push({ pathname: "/" });
-    this.setState({ sectionToScroll: destination });
-  }
 
   componentDidMount() {
     window.addEventListener("scroll", this.handleScroll);
-  }
-
-  componentDidUpdate() {
-    if (this.state.sectionToScroll.length > 1) {
-      scroller.scrollTo(this.state.sectionToScroll, {
-        duration: 500,
-        smooth: true,
-        spy: true,
-        offset: -20
-      });
-    }
   }
 
   componentWillUnmount() {
@@ -61,18 +43,12 @@ class NavigationComponent extends Component {
     this.setState({ openMenu: !this.state.openMenu });
   };
 
-  logout = () => {
-    firebase.auth().signOut();
-    this.props.history.push("/");
-  };
-
   capitalizeFirstLetter = string => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
 
   render() {
     const { openMenu, scroll } = this.state;
-    const { isLogged } = this.props;
     const logoImg = (
       <img
         src={logo}
@@ -111,9 +87,17 @@ class NavigationComponent extends Component {
           <ul className="navigation__list">
             <li className="navigation__item">
               {this.props.history.location.pathname !== "/" ? (
-                <p onClick={() => this.scrollToSection("steps")}>
+                <LinkHash
+                  to="/#steps"
+                  scroll={el =>
+                    el.scrollIntoView({
+                      behavior: "instant",
+                      block: "center"
+                    })
+                  }
+                >
                   O co chodzi?
-                </p>
+                </LinkHash>
               ) : (
                 <ScrollLink
                   onClick={this.handleOpenMenu}
@@ -126,7 +110,17 @@ class NavigationComponent extends Component {
             </li>
             <li className="navigation__item">
               {this.props.history.location.pathname !== "/" ? (
-                <p onClick={() => this.scrollToSection("aboutUs")}>O nas</p>
+                <LinkHash
+                  to="/#aboutUs"
+                  scroll={el =>
+                    el.scrollIntoView({
+                      behavior: "instant",
+                      block: "center"
+                    })
+                  }
+                >
+                  O nas
+                </LinkHash>
               ) : (
                 <ScrollLink
                   onClick={this.handleOpenMenu}
@@ -139,9 +133,17 @@ class NavigationComponent extends Component {
             </li>
             <li className="navigation__item">
               {this.props.history.location.pathname !== "/" ? (
-                <p onClick={() => this.scrollToSection("whoWeHelp")}>
+                <LinkHash
+                  to="/#whoWeHelp"
+                  scroll={el =>
+                    el.scrollIntoView({
+                      behavior: "instant",
+                      block: "start"
+                    })
+                  }
+                >
                   Fundacje i organizacje
-                </p>
+                </LinkHash>
               ) : (
                 <ScrollLink
                   onClick={this.handleOpenMenu}
@@ -154,7 +156,16 @@ class NavigationComponent extends Component {
             </li>
             <li className="navigation__item">
               {this.props.history.location.pathname !== "/" ? (
-                <p onClick={() => this.scrollToSection("contact")}>Kontakt</p>
+                <LinkHash
+                  to="/#contact"
+                  scroll={() => {
+                    const scrollingElement =
+                      document.scrollingElement || document.body;
+                    scrollingElement.scrollTop = scrollingElement.scrollHeight;
+                  }}
+                >
+                  Kontakt
+                </LinkHash>
               ) : (
                 <ScrollLink
                   onClick={this.handleOpenMenu}
@@ -166,30 +177,6 @@ class NavigationComponent extends Component {
               )}
             </li>
           </ul>
-          {/* <div className="navigation__login">
-            {isLogged ? (
-              <p className="user">
-                {this.capitalizeFirstLetter(isLogged.split("@")[0])}
-              </p>
-            ) : (
-              <button className="navigation__loginBtn navigation__btn">
-                <Link className="navigation__link-in" to="/signIn">
-                  Zaloguj
-                </Link>
-              </button>
-            )}
-            <button className="navigation__signUpBtn navigation__btn">
-              {isLogged ? (
-                <p className="logOut" onClick={() => this.logout()}>
-                  Wyloguj
-                </p>
-              ) : (
-                <Link className="navigation__link-up" to="/signUp">
-                  Załóż konto
-                </Link>
-              )}
-            </button>
-          </div> */}
         </nav>
       </div>
     );
