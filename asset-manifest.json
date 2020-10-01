@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/chery/static/css/main.edf30ab4.chunk.css",
+    "main.css": "/chery/static/css/main.5e4ad841.chunk.css",
     "main.js": "/chery/static/js/main.43a54f2f.chunk.js",
     "main.js.map": "/chery/static/js/main.43a54f2f.chunk.js.map",
     "runtime-main.js": "/chery/static/js/runtime-main.439a43ec.js",
@@ -8,9 +8,9 @@
     "static/js/2.69ca7e82.chunk.js": "/chery/static/js/2.69ca7e82.chunk.js",
     "static/js/2.69ca7e82.chunk.js.map": "/chery/static/js/2.69ca7e82.chunk.js.map",
     "index.html": "/chery/index.html",
-    "precache-manifest.ad21362d295f21b264e6d96d433f804c.js": "/chery/precache-manifest.ad21362d295f21b264e6d96d433f804c.js",
+    "precache-manifest.f7d83114f9bb813bbea0448c1cf7b996.js": "/chery/precache-manifest.f7d83114f9bb813bbea0448c1cf7b996.js",
     "service-worker.js": "/chery/service-worker.js",
-    "static/css/main.edf30ab4.chunk.css.map": "/chery/static/css/main.edf30ab4.chunk.css.map",
+    "static/css/main.5e4ad841.chunk.css.map": "/chery/static/css/main.5e4ad841.chunk.css.map",
     "static/js/2.69ca7e82.chunk.js.LICENSE": "/chery/static/js/2.69ca7e82.chunk.js.LICENSE",
     "static/media/1_step.svg": "/chery/static/media/1_step.b938b747.svg",
     "static/media/2_step.svg": "/chery/static/media/2_step.066b30d5.svg",
@@ -35,7 +35,7 @@
   "entrypoints": [
     "static/js/runtime-main.439a43ec.js",
     "static/js/2.69ca7e82.chunk.js",
-    "static/css/main.edf30ab4.chunk.css",
+    "static/css/main.5e4ad841.chunk.css",
     "static/js/main.43a54f2f.chunk.js"
   ]
 }
