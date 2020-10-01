@@ -24,8 +24,8 @@ const initialState = {
       title: "Kurier"
     }
   ],
-  currentStep: 3,
-  formStep: 3,
+  currentStep: 0,
+  formStep: 0,
   clothes: false,
   toys: false,
   books: false,

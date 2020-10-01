@@ -30,9 +30,11 @@
     }
   }
   &__slogan {
+    position: relative;
     font-size: 4.7vw;
     margin: 7vh 0 1.8rem;
     color: $color-text;
+    z-index: 3;
 
     @include tablet {
       font-size: 2.8rem;
@@ -55,12 +57,16 @@
     margin-top: -6rem;
     width: 50%;
     display: block;
+    height: 70vw;
+    object-fit: cover;
 
     @include tablet {
+      height: auto;
       width: 35%;
     }
 
     @include desktop {
+      height: auto;
       max-width: 700px;
     }
   }

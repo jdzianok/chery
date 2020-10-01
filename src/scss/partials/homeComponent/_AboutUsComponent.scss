@@ -56,6 +56,13 @@
   &__groupPhoto {
     display: block;
     width: 100%;
+    height: 244px;
+    object-fit: cover;
+
+    @include tablet {
+      height: 500px;
+      object-fit: cover;
+    }
 
     @include desktop {
       position: absolute;
@@ -63,6 +70,7 @@
       right: 0;
       transform: translate(10%, -50%);
       width: 60%;
+      height: auto;
       max-width: 840px;
     }
   }

@@ -81,9 +81,9 @@ function Step_4Component(props) {
         <div className="step-4__dateContainer__inputContainer">
           <input
             id="date"
-            type="text"
-            onFocus={e => (e.target.type = "date")}
-            onBlur={e => (e.target.type = "text")}
+            type="date"
+            // onFocus={e => (e.target.type = "date")}
+            // onBlur={e => (e.target.type = "text")}
             min={startDate}
             value={values.date}
             placeholder=" "
@@ -97,9 +97,9 @@ function Step_4Component(props) {
         <div className="step-4__dateContainer__inputContainer">
           <input
             id="time"
-            type="text"
-            onFocus={e => (e.target.type = "time")}
-            onBlur={e => (e.target.type = "text")}
+            type="time"
+            // onFocus={e => (e.target.type = "time")}
+            // onBlur={e => (e.target.type = "text")}
             placeholder=" "
             value={values.hour}
             required
